@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>The denial RightCall caught</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#eef1f5;padding:26px 30px;color:#1a202c}
+.headline{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.headline h1{font-size:21px;color:#1d4e89}
+.headline .sub{font-size:13px;color:#5a6472}
+.cols{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:start}
+.panel-label{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px}
+.left .panel-label{color:#6b7280}
+.right .panel-label{color:#1d4e89}
+
+/* left: the draft denial notice */
+.paper{background:#fdfdfb;border:1px solid #cfd4dc;box-shadow:0 2px 8px rgba(16,24,40,.10);
+padding:22px 24px;font-family:Georgia,'Times New Roman',serif;font-size:12.5px;color:#2b2f36;position:relative}
+.paper .lh{border-bottom:2px solid #2b2f36;padding-bottom:8px;margin-bottom:12px}
+.paper .lh b{font-size:15px;letter-spacing:.02em}
+.paper .lh .sub2{font-size:10.5px;color:#4a4f57}
+.paper .stamp{position:absolute;top:14px;right:18px;border:2.5px solid #b42318;color:#b42318;
+padding:3px 12px;font-family:'Segoe UI',Arial,sans-serif;font-weight:800;font-size:13px;
+letter-spacing:.12em;transform:rotate(6deg);text-transform:uppercase;opacity:.85}
+.paper h3{font-size:13px;margin:12px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.paper p{margin:7px 0;line-height:1.5}
+.paper .meta{font-size:11px;color:#4a4f57;margin:8px 0}
+.paper .fine{margin-top:14px;font-size:9.5px;color:#7a8089;line-height:1.5;border-top:1px solid #cfd4dc;padding-top:8px}
+.caption{font-size:12.5px;margin-top:10px;line-height:1.45}
+.left .caption{color:#6b7280}
+.right .caption{color:#1d4e89;font-weight:600}
+
+.mid{display:flex;align-items:center;justify-content:center;height:100%;min-height:340px}
+.mid .arrow{font-size:30px;color:#1d4e89;font-weight:700}
+
+/* right: rightcall */
+.rc{background:#f5f7fa;border:1px solid #e2e8f0;border-radius:12px;padding:16px 18px;
+box-shadow:0 2px 8px rgba(16,24,40,.06)}
+.rc .brand{font-size:16px;font-weight:700;color:#1d4e89;margin-bottom:8px}
+.rc .brand span{font-size:11px;color:#5a6472;font-weight:400}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px 13px;margin:8px 0;font-size:12px;line-height:1.45}
+.card h2{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#5a6472;margin-bottom:5px}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.04em;padding:1px 7px;border-radius:999px;text-transform:uppercase}
+.badge.code{background:#102a43;color:#fff}
+.badge.ok{background:#e8f5ec;color:#1a7f37}
+.finding{border-left:3.5px solid #b42318;background:#fdecea;border-radius:5px;padding:6px 9px;font-size:11.5px;margin-top:5px}
+.trace{font-family:Consolas,monospace;font-size:10.5px;margin-top:4px}
+.trace div{padding:3px 8px;border-left:3px solid #1d4e89;background:#fafbfc;border-radius:4px;margin:3px 0}
+.trace b{color:#1d4e89}
+.memo{border:1.5px solid #b42318;border-radius:8px;background:#fff;padding:8px 11px;font-size:12px;margin-top:8px}
+.memo b{color:#b42318}
+.esc{background:#fff8e5;border:1.5px solid #9a6700;color:#9a6700;border-radius:8px;padding:7px 11px;font-weight:600;font-size:11.5px;margin-top:8px}
+footer{margin-top:14px;font-size:10.5px;color:#8a919c;text-align:center}
+</style></head><body>
+
+<div class="headline">
+  <h1>95% of appealed SNF denials get overturned. This one never went out.</h1>
+  <div class="sub">one synthetic case · github.com/musharraf3/rightcall</div>
+</div>
+
+<div class="cols">
+  <div class="left">
+    <div class="panel-label">The draft denial, ready to mail</div>
+    <div class="paper">
+      <div class="stamp">Draft</div>
+      <div class="lh"><b>Sunrise Advantage (HMO)</b><div class="sub2">Utilization Management · Coverage Determination — SYNTHETIC</div></div>
+      <div class="meta">Member: Walter Osei · ID SYN-UM-0002 · Request: Skilled nursing facility admission, 20 days · Received 07/08/2026</div>
+      <h3>Notice of Denial</h3>
+      <p>Dear Mr. Osei,</p>
+      <p>Your request for skilled nursing facility admission has been <b>denied</b>. The therapy evaluation does not demonstrate expected significant functional improvement within 14 days, as required by plan guideline INT-SNF-2. Your functional scores show no significant improvement over the past seven days, and your condition has plateaued.</p>
+      <p>You have the right to appeal this decision within 60 days. Instructions are enclosed.</p>
+      <div class="fine">Reviewed under Sunrise Advantage internal guideline INT-SNF-2 (2019). ALL CONTENT ON THIS PAGE IS SYNTHETIC — DEMONSTRATION ONLY.</div>
+    </div>
+    <div class="caption">An 81-year-old stroke survivor in a nursing home — the population denied at <b>40% vs 11%</b> (OIG 2026). Only 18% would appeal. Of those who do, <b>95% win</b>.</div>
+  </div>
+
+  <div class="mid"><div class="arrow">→</div></div>
+
+  <div class="right">
+    <div class="panel-label">What RightCall caught, before it mailed</div>
+    <div class="rc">
+      <div class="brand">RightCall <span>pre-decision review · claude-haiku-4-5 + skill pack</span></div>
+      <div class="card"><h2>Checks <span class="badge code">computed in code — not by AI</span></h2>
+        <div class="finding"><b>improvement_standard</b> — "plateaued" rationale: skilled care to MAINTAIN function is covered; improvement is not required.</div>
+        <div class="finding"><b>criteria_precedence</b> — denial rests on internal guideline INT-SNF-2; Medicare criteria (MCR-SNF) are established and govern.</div>
+        <div class="finding"><b>overturn_risk</b> — 4 factors: SNF (95% overturned on appeal) · nursing-home resident (40% vs 11%) · criteria conflict · improvement language.</div>
+      </div>
+      <div class="card"><h2>Agent tool trace <span class="badge code">every step logged</span></h2>
+        <div class="trace">
+          <div>1 <b>get_deadline</b> → standard track · 125h remaining</div>
+          <div>2 <b>get_file_checks</b> → 5 findings (3 error-level)</div>
+          <div>3 <b>lookup_rules</b>("SNF coverage maintenance…") → MCR-SNF, INT-SNF-2 …</div>
+          <div>4 <b>lookup_rules</b>("criteria precedence…") → COV-PRECEDENCE …</div>
+        </div>
+      </div>
+      <div class="memo"><b>DO NOT FINALIZE.</b> "A denial may not be based on the absence of restorative potential or on a finding that the member's condition has plateaued." [MCR-SNF] <span class="badge ok">verified</span> — every quote machine-checked against the retrieved source.</div>
+      <div class="esc">⚠ Policy layer: error-level findings always route to a human. The system can only err toward review.</div>
+    </div>
+    <div class="caption">Deterministic code finds the compliance errors; the agent explains them with verified citations; a human decides. The member never sees the wrongful denial.</div>
+  </div>
+</div>
+
+<footer>All members, plans, and criteria are synthetic. RightCall supports human reviewers; it does not make coverage decisions.</footer>
+</body></html>

@@ -14,6 +14,8 @@ An overturn rate that high is not an appeals story. It is a **first-time decisio
 
 Meanwhile, AI is arriving on the *denial* side of this equation — opaquely. CMS's [WISeR model](https://www.kff.org/medicare/examining-the-potential-impact-of-medicares-new-wiser-model/) now pilots AI-assisted prior authorization in traditional Medicare, with vendors sharing in denial savings. RightCall is a demonstration of the opposite architecture: **AI on the quality side, with every step of its reasoning inspectable.**
 
+![Left: a synthetic draft denial notice built on 'plateaued' reasoning. Right: RightCall's code-computed compliance findings, logged agent tool trace, DO-NOT-FINALIZE memo with a machine-verified quote, and forced human review](docs/the_gap.png)
+
 ## Why "glass box" — five engineering choices, not a metaphor
 
 1. **The model never computes the facts.** Deterministic Python validates documentation completeness, runs the 72-hour/7-day decision clock, checks criteria precedence, QMB cost-sharing protections, improvement-standard language, and overturn-risk factors (`rightcall/checks.py`) — *before* the model sees the case.
@@ -35,6 +37,8 @@ Same bet as [ClearAnswer](https://github.com/musharraf3/clearanswer) (#2 in this
 Decision accuracy is scored on the model's **raw** recommendation, before the code policy layer can rescue it — the policy layer exists to protect the member, not the metric. Results from live API runs are committed in [`evals/results.md`](evals/results.md).
 
 **July 2026 run:** all three arms hit 100% raw decision accuracy — evidence that the *architecture* (deterministic checks + forced tool use) carries decision quality, not model size. Where the arms separate is discipline: escalation calibration went 8/10 (worker) → 9/10 (+skill) → 10/10 (teacher), groundedness 94% → 96% → 100%, and member-facing reading grade 9.1 → 8.1 → 6.8. The worker+skill configuration ran the whole suite for **$0.15 vs the teacher's $2.33** — a 16x measured gap. One honest wrinkle: skill pack v1.0 *hurt* the worker (it invented off-contract labels like "approval_of_draft" on correct-denial cases, which the code trapped and escalated); one clarifying paragraph in the skill fixed it. Authored expertise is code — it has bugs, and versioning it is the point.
+
+![Three-arm eval results: 100% raw decision accuracy across all arms; model size buys discipline; $0.15 vs $2.33](docs/eval_results.png)
 
 ## What a review looks like
 

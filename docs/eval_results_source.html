@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>RightCall eval results</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f5f7fa;padding:28px 34px;color:#1a202c}
+h1{font-size:20px;color:#1d4e89;margin-bottom:4px}
+.sub{font-size:13px;color:#5a6472;margin-bottom:18px}
+table{border-collapse:separate;border-spacing:0;width:100%;background:#fff;border:1px solid #e2e8f0;
+border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06);font-size:13.5px}
+th{background:#eef2f7;color:#5a6472;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+padding:10px 13px;text-align:left;border-bottom:1px solid #e2e8f0}
+td{padding:11px 13px;border-bottom:1px solid #eef1f5}
+tr:last-child td{border-bottom:none}
+td.num{font-family:Consolas,monospace;font-size:13px}
+.arm{font-weight:700}
+.model{font-size:11.5px;color:#5a6472}
+tr.hero{background:#e8f0fa}
+tr.hero td{border-top:2px solid #1d4e89;border-bottom:2px solid #1d4e89}
+tr.hero .arm{color:#1d4e89}
+.best{color:#1a7f37;font-weight:700}
+.takeaway{margin-top:16px;background:#fff;border-left:4px solid #1d4e89;border-radius:6px;
+padding:12px 16px;font-size:14.5px;line-height:1.5}
+.takeaway b{color:#1d4e89}
+.foot{margin-top:12px;font-size:11px;color:#8a919c}
+</style></head><body>
+
+<h1>When the architecture does the heavy lifting, how much model do you need?</h1>
+<div class="sub">Three-arm eval · 10 synthetic UM cases (5 planted compliance defects, 2 correct denials) · live API runs, July 2026 · decision accuracy scored on the model's RAW call, before the code policy layer can rescue it · reproducible: <span style="font-family:Consolas,monospace">python evals/run_evals.py</span></div>
+
+<table>
+<tr><th>Arm</th><th>Decision<br>accuracy</th><th>Must-mention<br>coverage</th><th>Citation<br>groundedness</th><th>Escalation<br>accuracy</th><th>Tool<br>discipline</th><th>Reading<br>grade</th><th>Cost<br>(10 cases)</th></tr>
+<tr>
+  <td><div class="arm">worker</div><div class="model">Haiku 4.5 + tools</div></td>
+  <td class="num best">100%</td><td class="num best">100%</td><td class="num">94%</td><td class="num">8/10</td><td class="num best">10/10</td><td class="num">9.1</td><td class="num">$0.14</td>
+</tr>
+<tr class="hero">
+  <td><div class="arm">worker + skill pack ← the product</div><div class="model">Haiku 4.5 + tools + skills authored by Fable 5</div></td>
+  <td class="num best">100%</td><td class="num best">100%</td><td class="num">96%</td><td class="num">9/10</td><td class="num">9/10</td><td class="num">8.1</td><td class="num">$0.15</td>
+</tr>
+<tr>
+  <td><div class="arm">teacher</div><div class="model">Claude Fable 5 + tools + skill pack</div></td>
+  <td class="num best">100%</td><td class="num">97%</td><td class="num best">100%</td><td class="num best">10/10</td><td class="num best">10/10</td><td class="num best">6.8</td><td class="num">$2.33</td>
+</tr>
+</table>
+
+<div class="takeaway"><b>All three arms: 100% raw decision accuracy.</b> The deterministic checks and forced tool use carry decision quality — model size buys <b>discipline</b>: escalation calibration 8/10 → 9/10 → 10/10, groundedness 94% → 96% → 100%, member-letter reading grade 9.1 → 6.8. The product configuration runs the suite for <b>$0.15 vs $2.33</b> — a 16x measured gap.</div>
+
+<div class="foot">Honest footnote: skill pack v1.0 made the worker WORSE (it invented off-contract labels on correct-denial cases; the code layer trapped them and escalated). One clarifying paragraph fixed it — authored expertise is code, and it has bugs. Small suite: 10 author-labeled cases. github.com/musharraf3/rightcall</div>
+</body></html>
