@@ -1,20 +1,20 @@
 {
-  "_note": "SYNTHETIC internal clinical criteria for the fictional 'Sunrise Advantage (HMO)' plan. INT-SNF-2 is deliberately written to conflict with Medicare criteria — it is one of the planted defects the system must catch.",
+  "_note": "SYNTHETIC internal clinical criteria for a fictional demo MA plan. INT-SNF-2 is deliberately written to conflict with Medicare criteria — it is one of the planted defects the system must catch.",
   "chunks": [
     {
       "id": "INT-SNF-2",
-      "title": "Sunrise internal guideline: SNF admission (legacy)",
-      "text": "Sunrise Advantage internal guideline INT-SNF-2 (legacy, 2019): skilled nursing facility admission is approved when the member demonstrates documented restorative potential with expected significant functional improvement within 14 days of admission, measurable against baseline functional scores. Members assessed as having plateaued or as requiring maintenance-level care do not meet this guideline. NOTE: this legacy guideline predates current criteria-precedence rules and has not been retired from the criteria library."
+      "title": "Plan internal guideline: SNF admission (legacy)",
+      "text": "The plan's internal guideline INT-SNF-2 (legacy, 2019): skilled nursing facility admission is approved when the member demonstrates documented restorative potential with expected significant functional improvement within 14 days of admission, measurable against baseline functional scores. Members assessed as having plateaued or as requiring maintenance-level care do not meet this guideline. NOTE: this legacy guideline predates current criteria-precedence rules and has not been retired from the criteria library."
     },
     {
       "id": "INT-ACU-1",
-      "title": "Sunrise internal criteria: supplemental acupuncture wellness benefit",
-      "text": "The Sunrise Advantage supplemental acupuncture wellness benefit covers up to 12 visits per calendar year with a licensed acupuncturist upon physician referral. This is a supplemental benefit beyond traditional Medicare, and Medicare coverage criteria are not established for it; these internal criteria are published on the plan website with their clinical rationale and evidence sources, as required for internal criteria. Requests beyond 12 visits per year are outside the benefit."
+      "title": "Plan internal criteria: supplemental acupuncture wellness benefit",
+      "text": "The plan's supplemental acupuncture wellness benefit covers up to 12 visits per calendar year with a licensed acupuncturist upon physician referral. This is a supplemental benefit beyond traditional Medicare, and Medicare coverage criteria are not established for it; these internal criteria are published on the plan website with their clinical rationale and evidence sources, as required for internal criteria. Requests beyond 12 visits per year are outside the benefit."
     },
     {
       "id": "INT-IMG-1",
-      "title": "Sunrise internal criteria: advanced imaging appropriateness",
-      "text": "For advanced imaging where Medicare coverage criteria are not fully established for the specific indication, Sunrise Advantage applies published appropriate-use criteria from widely used clinical guidelines, available publicly on the plan website with the underlying evidence sources. Imaging requests that meet the published appropriate-use criteria are approved without clinician review."
+      "title": "Plan internal criteria: advanced imaging appropriateness",
+      "text": "For advanced imaging where Medicare coverage criteria are not fully established for the specific indication, the plan applies published appropriate-use criteria from widely used clinical guidelines, available publicly on the plan website with the underlying evidence sources. Imaging requests that meet the published appropriate-use criteria are approved without clinician review."
     }
   ]
 }

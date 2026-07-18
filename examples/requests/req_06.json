@@ -2,11 +2,33 @@
   "request_id": "req_06",
   "one_liner": "Expedited inpatient admission with 21 hours left on the clock — criteria met, draft approve",
   "synthetic": true,
-  "member": {"name": "Harold Beaumont (SYNTHETIC)", "member_id": "SYN-UM-0006", "plan": "Sunrise Advantage (HMO) — SYNTHETIC", "dual_status": "none", "setting": "community"},
-  "service": {"type": "inpatient_admission", "description": "Inpatient admission for community-acquired pneumonia with hypoxia", "cpt_hcpcs": null, "expedited": true},
+  "member": {
+    "name": "SYNTHETIC MEMBER 0006",
+    "member_id": "SYN-UM-0006",
+    "plan": "Synthetic Medicare Advantage Plan (HMO) — DEMO",
+    "dual_status": "none",
+    "setting": "community"
+  },
+  "service": {
+    "type": "inpatient_admission",
+    "description": "Inpatient admission for community-acquired pneumonia with hypoxia",
+    "cpt_hcpcs": null,
+    "expedited": true
+  },
   "received_at": "2026-07-08T18:00:00Z",
   "as_of": "2026-07-10T21:00:00Z",
   "clinical_summary": "79M presenting with community-acquired pneumonia, SpO2 88% on room air, CURB-65 score 3, atrial fibrillation on anticoagulation. Admitting clinician documents expectation of IV antibiotics, oxygen support, and monitoring across at least two midnights given comorbidities and fall risk.",
-  "documents_submitted": ["emergency_department_note", "physician_admission_order", "clinical_progress_notes"],
-  "draft_decision": {"action": "approve", "basis": "medicare_criteria", "criteria_id": "MCR-INPT", "rationale": "Two-midnight expectation documented by the admitting clinician; severity and comorbidities support inpatient intensity.", "specific_reason": null, "member_cost_share": 0}
+  "documents_submitted": [
+    "emergency_department_note",
+    "physician_admission_order",
+    "clinical_progress_notes"
+  ],
+  "draft_decision": {
+    "action": "approve",
+    "basis": "medicare_criteria",
+    "criteria_id": "MCR-INPT",
+    "rationale": "Two-midnight expectation documented by the admitting clinician; severity and comorbidities support inpatient intensity.",
+    "specific_reason": null,
+    "member_cost_share": 0
+  }
 }
