@@ -1,0 +1,2 @@
+# Intentionally empty: RightCall runs on the Python 3.11+ standard library only.
+# Live mode calls the Anthropic Messages API with urllib — no SDK required.

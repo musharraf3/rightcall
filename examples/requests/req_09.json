@@ -1,0 +1,12 @@
+{
+  "request_id": "req_09",
+  "one_liner": "Home-health denial for 'not homebound' while the face-to-face note documents bed-to-chair existence — evidence conflict",
+  "synthetic": true,
+  "member": {"name": "Sylvia Grand-Pierre (SYNTHETIC)", "member_id": "SYN-UM-0009", "plan": "Sunrise Advantage (HMO) — SYNTHETIC", "dual_status": "full_dual", "setting": "community"},
+  "service": {"type": "home_health", "description": "Home health: skilled nursing weekly + OT 2x weekly, 60 days", "cpt_hcpcs": null, "expedited": false},
+  "received_at": "2026-07-07T08:00:00Z",
+  "as_of": "2026-07-10T09:00:00Z",
+  "clinical_summary": "83F with CHF (EF 25%) and severe osteoarthritis. Face-to-face encounter note states the member is 'largely bed-to-chair, requires assist of one plus a walker for any ambulation, and becomes dyspneic after 20 feet'. A utilization note from a telephonic check states the member 'attended a family barbecue last month', which the drafting reviewer cites as evidence she is not homebound.",
+  "documents_submitted": ["physician_certification", "face_to_face_encounter_note", "plan_of_care"],
+  "draft_decision": {"action": "deny", "basis": "medicare_criteria", "criteria_id": "MCR-HH", "rationale": "Homebound status not established: member reportedly attended a social outing outside the home.", "specific_reason": "Coverage requires that you be confined to the home; information in the file indicates you were able to attend an outing outside your home, which is inconsistent with homebound status.", "member_cost_share": 0}
+}

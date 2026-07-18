@@ -1,0 +1,181 @@
+{
+  "request_id": "req_10",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "ESCALATE \u2014 the expedited decision clock is already breached: per get_deadline, this expedited request was due 2026-07-09T12:00:00Z and is now 21.0 hours past due (hours_remaining: -21.0, breached: true). The clock gate fails regardless of the draft's quality, and get_file_checks flags the breach as an error requiring escalation. Governing rules: the expedited track was correctly applied (REG-EXP-72: 'Expedited decisions must be sent within 72 hours of receipt'), and the breach itself is now the operative failure (REG-UNTIMELY: 'the delay is treated as an adverse determination: the case must be forwarded for independent review and the untimeliness is a reportable compliance failure'). No extension was documented, and none would cure this (REG-EXT permits extension 'only when the member requests it or when the plan can show the extension is in the member's interest'). On the merits, the draft approval is sound: the file is complete per get_file_checks (all 4 required documents present, consistent with DOC-SNF), and the clinical summary \u2014 daily skilled PT/OT for weight-bearing progression and transfer training with physician certification \u2014 squarely meets MCR-SNF ('Skilled nursing facility care is covered when the member requires skilled nursing or skilled rehabilitation services on a daily basis'). The draft correctly rests on MCR-SNF, not the legacy INT-SNF-2 guideline. A human must own the untimely determination: issue the approval immediately, initiate the required forwarding/reporting, and note the member is occupying an acute bed pending this decision \u2014 every additional hour compounds the harm.",
+  "member_impact": "We are sorry \u2014 our answer on your nursing facility stay is late. Your doctors sent us everything we needed, and your care team asked us to decide quickly. We are moving your request to a senior reviewer right now so you get an answer as fast as possible. You do not need to do anything. Your doctors' request for daily therapy at a skilled nursing facility is being taken seriously, and we are working to get you placed quickly.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Route immediately to a senior reviewer/medical director to issue the approval today \u2014 the member is holding an acute hospital bed pending decision",
+    "Treat the missed deadline as an adverse determination and forward the case for independent review as required (REG-UNTIMELY)",
+    "Log the untimeliness as a reportable compliance failure and open a root-cause review of the expedited-queue delay",
+    "Confirm the final notice rests on MCR-SNF (as drafted) with $0 inappropriate cost sharing",
+    "Flag the un-retired legacy guideline INT-SNF-2 to the criteria library owner for retirement or annotation"
+  ],
+  "citations": [
+    {
+      "chunk_id": "REG-EXP-72",
+      "quote": "Expedited decisions must be sent within 72 hours of receipt.",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-UNTIMELY",
+      "quote": "the delay is treated as an adverse determination: the case must be forwarded for independent review and the untimeliness is a reportable compliance failure",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "quote": "only when the member requests it or when the plan can show the extension is in the member's interest",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "quote": "Skilled nursing facility care is covered when the member requires skilled nursing or skilled rehabilitation services on a daily basis",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "quote": "A skilled nursing facility admission review requires the hospital discharge summary, a therapy evaluation establishing the daily skilled need, the physician certification of the need for skilled care, and a nursing assessment.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 4 required documents for snf_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "error",
+      "detail": "Decision clock BREACHED: the expedited deadline was 2026-07-09T12:00:00Z and it is now 2026-07-10T09:00:00Z. An untimely adverse determination is itself a compliance failure \u2014 escalate.",
+      "data": {
+        "hours_remaining": -21.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "expedited",
+    "received_at": "2026-07-06T12:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-09T12:00:00Z",
+    "hours_remaining": -21.0,
+    "breached": true
+  },
+  "retrieval": [
+    {
+      "chunk_id": "REG-UNTIMELY",
+      "score": 11.981,
+      "matched_terms": [
+        "deadline",
+        "determination",
+        "missed",
+        "timeframe"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXP-72",
+      "score": 11.836,
+      "matched_terms": [
+        "72",
+        "expedited",
+        "timeframe"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "score": 2.716,
+      "matched_terms": [
+        "timeframe"
+      ]
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "score": 2.133,
+      "matched_terms": [
+        "determination"
+      ]
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 14.445,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "daily",
+        "facility",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 10.946,
+      "matched_terms": [
+        "facility",
+        "medicare",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 10.322,
+      "matched_terms": [
+        "criteria",
+        "facility",
+        "nursing",
+        "skilled",
+        "snf"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "expedited track \u00b7 -21h remaining \u00b7 due 2026-07-09T12:00:00Z \u00b7 BREACHED"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (1 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "expedited organization determination 72-hour timeframe missed deadline breach"
+      },
+      "result_digest": "query 'expedited organization determination 72-hour timeframe missed deadline breach' \u2192 REG-UNTIMELY (11.981), REG-EXP-72 (11.836), REG-EXT (2.716), DOC-SNF (2.133)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "Medicare SNF skilled nursing facility coverage criteria daily skilled need"
+      },
+      "result_digest": "query 'Medicare SNF skilled nursing facility coverage criteria daily skilled need' \u2192 DOC-SNF (16.055), MCR-SNF (14.445), COV-SNF3DAY (10.946), INT-SNF-2 (10.322)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Expedited 72-hour decision clock breached (21 hours past due per get_deadline; flagged as error by get_file_checks). An untimely determination is itself a compliance failure a human must own, including forwarding for independent review \u2014 even though the draft approval is clinically supportable under MCR-SNF.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 14554,
+    "output_tokens": 1799
+  }
+}

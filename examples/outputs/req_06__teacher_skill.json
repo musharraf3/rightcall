@@ -1,0 +1,187 @@
+{
+  "request_id": "req_06",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "approve",
+  "memo": "Under 24 hours remain on the expedited clock (21.0 hours; due 2026-07-11T18:00:00Z per get_deadline, breached=false) \u2014 finalize this file today. Outcome: APPROVE; the draft approval is correct and should be finalized as written. (1) Clock gate: get_deadline confirms the expedited track applies and the deadline has not been breached; the code check flags 'Decision clock: 21 hours remain on the expedited track (due 2026-07-11T18:00:00Z). Prioritize this file.' The expedited track is proper \u2014 the governing rule requires it 'when applying the standard timeframe could seriously jeopardize the member's life, health, or ability to regain maximum function' and 'Expedited decisions must be sent within 72 hours of receipt' (REG-EXP-72). (2) File gate: get_file_checks reports 'File is complete: all 3 required documents for inpatient_admission are present.' This matches DOC-INPT, which requires 'the emergency department or clinic note from presentation, the physician admission order with the admitting clinician's expectation of the length and intensity of care, and the clinical progress notes.' All three are in the file. (3) Compliance gate: no criteria-precedence, improvement-standard, or QMB findings from the code checks. The draft correctly bases the decision on Medicare criteria (MCR-INPT), consistent with COV-PRECEDENCE ('those criteria govern the decision and the plan may not apply more restrictive rules of its own'). Member is not dual-eligible; cost share of $0 raises no QMB issue. (4) Merits: MCR-INPT provides that admission 'is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights, considering the member's history, comorbidities, severity of presentation, and risk of an adverse event.' The file documents exactly that: 79M with CAP, SpO2 88% on room air, CURB-65 of 3, atrial fibrillation on anticoagulation, and an explicit admitting-clinician expectation of IV antibiotics, oxygen, and monitoring across at least two midnights given comorbidities and fall risk. COV-2MN confirms the benchmark is met when 'the admitting clinician expects the member to require hospital care that crosses two midnights.' No observation-first step is required \u2014 MCR-INPT: 'Observation status is not a required first step when admission criteria are met at presentation.' Criteria clearly met on a complete file; issue the approval notice within the remaining 21 hours.",
+  "member_impact": "Good news: your hospital stay is approved. Your doctor said you need hospital care for your pneumonia and low oxygen, and your plan agrees. You do not need to do anything. The hospital and your plan will handle the paperwork.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Finalize and send the approval notice before the expedited deadline of 2026-07-11T18:00:00Z (21 hours remaining).",
+    "Confirm the approval notice reflects the Medicare criteria basis (MCR-INPT) as drafted.",
+    "Route the file for concurrent review of the ongoing stay per normal process."
+  ],
+  "citations": [
+    {
+      "chunk_id": "REG-EXP-72",
+      "quote": "Expedited decisions must be sent within 72 hours of receipt.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-INPT",
+      "quote": "the emergency department or clinic note from presentation, the physician admission order with the admitting clinician's expectation of the length and intensity of care, and the clinical progress notes",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "quote": "is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights, considering the member's history, comorbidities, severity of presentation, and risk of an adverse event",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "quote": "Observation status is not a required first step when admission criteria are met at presentation.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-2MN",
+      "quote": "the admitting clinician expects the member to require hospital care that crosses two midnights",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "those criteria govern the decision and the plan may not apply more restrictive rules of its own",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for inpatient_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "warning",
+      "detail": "Decision clock: 21 hours remain on the expedited track (due 2026-07-11T18:00:00Z). Prioritize this file.",
+      "data": {
+        "hours_remaining": 21.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "expedited",
+    "received_at": "2026-07-08T18:00:00Z",
+    "as_of": "2026-07-10T21:00:00Z",
+    "due_at": "2026-07-11T18:00:00Z",
+    "hours_remaining": 21.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "COV-2MN",
+      "score": 11.308,
+      "matched_terms": [
+        "admission",
+        "inpatient",
+        "midnight",
+        "two"
+      ]
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "score": 9.283,
+      "matched_terms": [
+        "admission",
+        "coverage",
+        "criteria",
+        "inpatient",
+        "two"
+      ]
+    },
+    {
+      "chunk_id": "DOC-INPT",
+      "score": 5.77,
+      "matched_terms": [
+        "admission",
+        "inpatient"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 5.467,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXP-72",
+      "score": 11.836,
+      "matched_terms": [
+        "72",
+        "expedited",
+        "timeframe"
+      ]
+    },
+    {
+      "chunk_id": "REG-UNTIMELY",
+      "score": 4.304,
+      "matched_terms": [
+        "determination",
+        "timeframe"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "score": 2.716,
+      "matched_terms": [
+        "timeframe"
+      ]
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "score": 2.133,
+      "matched_terms": [
+        "determination"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "expedited track \u00b7 21h remaining \u00b7 due 2026-07-11T18:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "inpatient admission two-midnight Medicare coverage criteria"
+      },
+      "result_digest": "query 'inpatient admission two-midnight Medicare coverage criteria' \u2192 COV-2MN (11.308), MCR-INPT (9.283), DOC-INPT (5.77), COV-PRECEDENCE (5.467)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "expedited organization determination 72 hour timeframe"
+      },
+      "result_digest": "query 'expedited organization determination 72 hour timeframe' \u2192 REG-EXP-72 (11.836), REG-UNTIMELY (4.304), REG-EXT (2.716), DOC-SNF (2.133)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "approve",
+  "groundedness": {
+    "total_quotes": 6,
+    "verified_quotes": 6,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 14290,
+    "output_tokens": 1747
+  }
+}

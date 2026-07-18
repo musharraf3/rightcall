@@ -1,0 +1,12 @@
+{
+  "request_id": "req_08",
+  "one_liner": "Acupuncture beyond the supplemental benefit limit — internal criteria legitimately apply, denial supported",
+  "synthetic": true,
+  "member": {"name": "Pearl Nakamura (SYNTHETIC)", "member_id": "SYN-UM-0008", "plan": "Sunrise Advantage (HMO) — SYNTHETIC", "dual_status": "none", "setting": "community"},
+  "service": {"type": "acupuncture_wellness", "description": "Acupuncture wellness visits, 20 requested for calendar year", "cpt_hcpcs": "97810", "expedited": false},
+  "received_at": "2026-07-06T15:00:00Z",
+  "as_of": "2026-07-10T09:00:00Z",
+  "clinical_summary": "69F requesting 20 acupuncture wellness visits under the plan's supplemental benefit with physician referral. Eight visits already used this calendar year.",
+  "documents_submitted": ["physician_referral"],
+  "draft_decision": {"action": "deny", "basis": "internal_criteria", "criteria_id": "INT-ACU-1", "rationale": "Supplemental wellness benefit is limited to 12 visits per calendar year; 8 already used, 20 more requested exceeds the published benefit limit.", "specific_reason": "Your plan's supplemental acupuncture benefit covers up to 12 visits per calendar year. You have used 8; up to 4 more can be covered this year, so a request for 20 additional visits exceeds the benefit limit.", "member_cost_share": 0}
+}

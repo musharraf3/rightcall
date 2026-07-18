@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>RightCall — req_02</title><style>
+:root{--ink:#1a202c;--sub:#5a6472;--line:#e2e8f0;--brand:#1d4e89;--brand-lt:#e8f0fa;
+--ok:#1a7f37;--ok-bg:#e8f5ec;--warn:#9a6700;--warn-bg:#fff8e5;--err:#b42318;--err-bg:#fdecea;
+--chip:#eef2f7;--trace:#102a43}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--ink);
+background:#f5f7fa;padding:28px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto}
+header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+header h1{font-size:26px;color:var(--brand)}
+header .tag{color:var(--sub);font-size:13px}
+.banner{border-radius:10px;padding:12px 16px;font-weight:700;margin:14px 0;font-size:15px}
+.banner.approve{background:var(--ok-bg);border:1.5px solid var(--ok);color:var(--ok)}
+.banner.request_documentation{background:var(--brand-lt);border:1.5px solid var(--brand);color:var(--brand)}
+.banner.denial_supported{background:var(--chip);border:1.5px solid var(--sub);color:var(--ink)}
+.banner.escalate_human{background:var(--warn-bg);border:1.5px solid var(--warn);color:var(--warn)}
+.clock{display:inline-block;font-family:Consolas,monospace;font-size:12.5px;padding:3px 10px;
+border-radius:999px;background:var(--chip)}
+.clock.breach{background:var(--err-bg);color:var(--err);font-weight:700}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+margin:14px 0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.card h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);
+margin-bottom:10px}
+.finding{border-left:4px solid;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:14px}
+.finding.error{border-color:var(--err);background:var(--err-bg)}
+.finding.warning{border-color:var(--warn);background:var(--warn-bg)}
+.finding.info{border-color:var(--sub);background:var(--chip)}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+padding:2px 9px;border-radius:999px;text-transform:uppercase}
+.badge.code{background:var(--trace);color:#fff}
+.badge.err{background:var(--err-bg);color:var(--err)}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}
+.trace{font-family:Consolas,monospace;font-size:12.5px}
+.trace .step{display:flex;gap:10px;padding:7px 10px;border-left:3px solid var(--brand);
+background:#fafbfc;border-radius:6px;margin:6px 0;align-items:baseline}
+.trace .n{color:#fff;background:var(--brand);border-radius:999px;min-width:20px;height:20px;
+display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex:none}
+.trace .tool{color:var(--brand);font-weight:700}
+.trace .in{color:var(--sub)}
+.memo{font-size:14.5px;white-space:pre-wrap}
+.impact{background:var(--brand-lt);border:1px solid var(--brand);border-radius:8px;
+padding:10px 14px;font-size:14px;margin-top:10px}
+.cite{background:#fafbfc;border:1px solid var(--line);border-radius:8px;padding:8px 12px;
+margin:8px 0 0;font-size:13.5px}
+.cite .src{color:var(--brand);font-weight:600}
+.cite .q{font-style:italic;color:var(--sub)}
+.retr{font-size:12.5px;color:var(--sub);margin-top:8px;font-family:Consolas,monospace}
+.retr .bar{display:inline-block;height:8px;background:var(--brand);border-radius:4px;
+vertical-align:middle;margin-right:6px}
+.actions li{margin:6px 0 6px 4px}
+.policy{background:var(--err-bg);border:1.5px solid var(--err);border-radius:10px;
+padding:12px 16px;margin:14px 0;font-size:13.5px}
+.policy b{color:var(--err)}
+.escalate{background:var(--warn-bg);border:1.5px solid var(--warn);color:var(--warn);
+border-radius:10px;padding:12px 16px;font-weight:600;margin:14px 0}
+footer{color:var(--sub);font-size:12.5px;margin-top:18px;border-top:1px solid var(--line);
+padding-top:12px}
+.gg{font-weight:600}
+</style></head><body><div class="wrap">
+<header><h1>RightCall</h1><span class="tag">pre-decision review ·
+Sunrise Advantage (HMO) — SYNTHETIC · claude-haiku-4-5-20251001 · arm: worker+skill</span></header>
+<div style="margin:6px 0 0"><span class="clock">standard track · due 2026-07-15T14:00:00Z · 125h remaining</span></div>
+<div class="banner escalate_human">ESCALATE — a human decides this one</div>
+<div class="card"><h2>Case</h2>
+<p><b>Skilled nursing facility admission, 20 days requested</b> — Walter Osei (SYNTHETIC),
+SYN-UM-0002</p>
+<p style="color:var(--sub);font-size:13.5px;margin-top:6px">81M post ischemic stroke with dysphagia and right-sided weakness, discharged from acute care 2026-07-07. Therapy evaluation documents daily skilled needs: swallowing therapy with aspiration precautions, PT/OT for safe transfers, and skilled nursing for PEG-site care and anticoagulation monitoring. Functional scores stable over the last week without further gains.</p></div><div class="card"><h2>Pre-decision checks <span class="badge code">computed in code — not by AI</span></h2><div class="finding info"><b>documentation</b><div>File is complete: all 4 required documents for snf_admission are present.</div></div><div class="finding info"><b>deadline</b><div>Decision clock: 125 hours remain on the standard track (due 2026-07-15T14:00:00Z).</div></div><div class="finding error"><b>criteria_precedence</b><div>Draft denial rests on internal criteria (INT-SNF-2), but Medicare coverage criteria for snf_admission are established (see MCR-SNF). Where Medicare criteria exist, they govern — internal criteria may only fill gaps.</div></div><div class="finding error"><b>improvement_standard</b><div>Draft denial rationale uses improvement-standard language (&#x27;no significant improvement&#x27;; &#x27;plateau&#x27;; &#x27;has plateaued&#x27;; &#x27;restorative potential&#x27;). Skilled care to MAINTAIN function or slow decline is covered — improvement is not required. This is among the most-overturned denial rationales.</div></div><div class="finding error"><b>overturn_risk</b><div>Overturn-risk factors present (4): SNF denial (95% of appealed SNF denials are overturned — OIG 2026); nursing-home resident (denied at 40% vs 11% for others — OIG 2026); internal criteria conflict with Medicare criteria; improvement-standard rationale. Published pattern: 81% of appealed MA denials are overturned — a denial with these markers is unlikely to survive review.</div></div></div><div class="card"><h2>Agent tool trace <span class="badge code">every step logged</span></h2><div class="trace"><div class="step"><span class="n">1</span><span><span class="tool">get_deadline</span><span class="in">()</span> → standard track · 125h remaining · due 2026-07-15T14:00:00Z</span></div><div class="step"><span class="n">2</span><span><span class="tool">get_file_checks</span><span class="in">()</span> → 5 findings (3 error-level)</span></div><div class="step"><span class="n">3</span><span><span class="tool">lookup_rules</span><span class="in">({&quot;query&quot;: &quot;SNF skilled nursing facility coverage criteria maintenance improvement&quot;})</span> → query &#x27;SNF skilled nursing facility coverage criteria maintenance improvement&#x27; → INT-SNF-2 (12.793), MCR-SNF (11.873), MCR-THER (8.75), DOC-SNF (7.931)</span></div><div class="step"><span class="n">4</span><span><span class="tool">lookup_rules</span><span class="in">({&quot;query&quot;: &quot;coverage criteria precedence Medicare internal plan guidelines&quot;})</span> → query &#x27;coverage criteria precedence Medicare internal plan guidelines&#x27; → COV-INTERNAL (10.059), INT-IMG-1 (8.618), INT-ACU-1 (7.274), COV-PRECEDENCE (6.544)</span></div></div></div><div class="card"><h2>Review memo</h2><div class="memo">DO NOT FINALIZE. The draft fails two core compliance rules and carries extreme overturn risk (95% of appealed SNF denials overturned per OIG 2026; this case combines internal-criteria conflict, improvement-standard language, and nursing-home setting—81% overall MA appeal overturn rate).
+
+1. IMPROVEMENT-STANDARD ERROR: Draft rationale (&#x27;plateaued&#x27;, &#x27;no significant improvement&#x27;, &#x27;restorative potential not documented&#x27;) violates MCR-SNF [chunk MCR-SNF]: &#x27;skilled care needed to maintain the member&#x27;s condition, or to prevent or slow further deterioration, is covered. A denial may not be based on the absence of restorative potential or on a finding that the member&#x27;s condition has plateaued.&#x27; The clinical summary documents daily skilled needs (swallowing therapy with aspiration precautions, PT/OT for safe transfers, skilled nursing for PEG-site care and anticoagulation monitoring). Functional stability—not improvement—supports coverage for maintenance-level skilled care.
+
+2. CRITERIA-PRECEDENCE ERROR: Draft relies on INT-SNF-2 (legacy 2019 internal guideline requiring &#x27;expected significant functional improvement within 14 days&#x27;). However, MCR-SNF (Medicare coverage criteria for SNF) is fully established and governs. Per COV-PRECEDENCE [chunk COV-PRECEDENCE]: &#x27;When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.&#x27; INT-SNF-2 directly contradicts MCR-SNF by requiring improvement as a prerequisite; Medicare explicitly rejects that standard. This denial cannot stand.
+
+3. MEMBER COST SHARE: $0 (correct); no QMB issue.
+
+Clock: 125 hours remain (due 2026-07-15 at 14:00 UTC); no deadline risk.
+
+File: Complete (all 4 required documents present).
+
+RECOMMENDED ACTIONS:
+- Route to medical director immediately; do not finalize notice.
+- Re-review against MCR-SNF (not INT-SNF-2). Member meets Medicare criteria: post-stroke, acute discharge, documented daily skilled nursing and therapy needs, medical necessity clearly established by discharge summary and therapy evaluation.
+- Retire or formally annotate INT-SNF-2 in the criteria library with a precedence note; do not apply to future SNF reviews.
+- Approval is the appropriate coverage outcome on this file.</div><div class="impact"><b>Member impact (plain language):</b> Your request for skilled nursing care after your stroke cannot be approved under the guideline your plan used. We need to review this again under the correct Medicare rules. You should not receive a denial letter until your care is reviewed the right way. We will contact you within the next few days with an update.</div></div><div class="card"><h2>Citations — machine-verified</h2><div class="cite"><span class="src">[MCR-SNF] Skilled nursing facility care: coverage criteria</span> <span class="badge ok">verified</span><div class="q">“skilled care needed to maintain the member&#x27;s condition, or to prevent or slow further deterioration, is covered. A denial may not be based on the absence of restorative potential or on a finding that the member&#x27;s condition has plateaued.”</div></div><div class="cite"><span class="src">[COV-PRECEDENCE] Medicare coverage criteria govern when they exist</span> <span class="badge ok">verified</span><div class="q">“When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.”</div></div><div class="cite"><span class="src">[INT-SNF-2] Sunrise internal guideline: SNF admission (legacy)</span> <span class="badge ok">verified</span><div class="q">“skilled nursing facility admission is approved when the member demonstrates documented restorative potential with expected significant functional improvement within 14 days of admission, measurable against baseline functional scores. Members assessed as having plateaued or as requiring maintenance-level care do not meet this guideline.”</div></div><div class="cite"><span class="src">[COV-INTERNAL] Internal criteria: only in the gaps, and only in the open</span> <span class="badge ok">verified</span><div class="q">“A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service.”</div></div><div class="retr"><b>why these sources (retrieval scores):</b><div><span class="bar" style="width:70px"></span>INT-SNF-2 · BM25 12.793 · matched: criteria, facility, improvement, maintenance, nursing, skilled</div><div><span class="bar" style="width:64px"></span>MCR-SNF · BM25 11.873 · matched: coverage, criteria, facility, improvement, nursing, skilled</div><div><span class="bar" style="width:55px"></span>COV-INTERNAL · BM25 10.059 · matched: coverage, criteria, guidelines, internal, medicare, plan</div><div><span class="bar" style="width:47px"></span>MCR-THER · BM25 8.75 · matched: coverage, criteria, improvement, maintenance, skilled</div><div><span class="bar" style="width:47px"></span>INT-IMG-1 · BM25 8.618 · matched: coverage, criteria, guidelines, internal, medicare, plan</div></div></div><div class="card"><h2>Recommended actions</h2><ol class="actions"><li>Route to medical director immediately; do not finalize or mail notice.</li><li>Re-review against MCR-SNF (Medicare criteria), not INT-SNF-2.</li><li>Approve: member meets Medicare criteria (post-stroke, acute discharge, documented daily skilled needs for nursing, swallowing therapy, PT/OT, and medical monitoring).</li><li>Retire or annotate INT-SNF-2 in the criteria library; flag for precedence violation in future use.</li></ol></div><div class="escalate">⚠ Human hand-off: Compliance gate failure on two grounds: (1) improvement-standard error — draft uses &#x27;plateaued&#x27; and &#x27;no significant improvement&#x27; rationale, directly violating MCR-SNF which explicitly states improvement is not required and denials cannot rest on plateau or lack of restorative potential; (2) criteria-precedence error — draft applies legacy INT-SNF-2 (requiring &#x27;expected significant functional improvement within 14 days&#x27;) when MCR-SNF is fully established and governs, and INT-SNF-2 contradicts it. File is complete and clock is healthy, but the notice as drafted will very likely be overturned on appeal (95% of appealed SNF denials overturned; case combines all high-risk markers). Medical director review and re-determination against MCR-SNF required before any notice is mailed.</div><footer><span class="gg">Groundedness guard: 4/4 citations verified verbatim against chunks actually retrieved in this review.</span>
+The decision clock, file checks, citation verification, and policy overrides are
+deterministic code — inspect them in the repo. RightCall supports human reviewers;
+it does not make coverage decisions. All data on this page is synthetic.</footer>
+</div></body></html>

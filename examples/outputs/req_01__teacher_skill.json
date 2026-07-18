@@ -1,0 +1,172 @@
+{
+  "request_id": "req_01",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "approve",
+  "memo": "APPROVE \u2014 the draft approval is correct and ready to finalize. Decision clock: get_deadline reports the standard track with 97.0 hours remaining (due 2026-07-14T10:00:00Z), not breached. File: get_file_checks reports 'File is complete: all 2 required documents for cardiac_rehab are present,' consistent with DOC-CR, which requires 'documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program' \u2014 both are in the file (qualifying_event_documentation, physician_referral). No compliance flags were reported. Merits: Medicare criteria govern and the draft correctly uses them (basis MCR-CR), satisfying COV-PRECEDENCE ('those criteria govern the decision and the plan may not apply more restrictive rules of its own'). MCR-CR covers members who 'within the preceding twelve months have experienced ... coronary angioplasty or stenting'; the member had a drug-eluting stent placed 2026-06-12 for NSTEMI, well within twelve months. The prescribed program \u2014 36 supervised sessions over 12 weeks with risk-factor modification and outcomes assessment \u2014 fits squarely within MCR-CR's benefit: 'up to 36 supervised sessions over up to 36 weeks, with physician-prescribed exercise, risk-factor modification, and outcomes assessment.' Dual status is none, so the $0 cost share raises no QMB issue. No errors found; issue the approval within the remaining clock.",
+  "member_impact": "Good news: your cardiac rehab program is approved. Your doctor asked for 36 supervised exercise sessions after your heart stent, and your plan covers this. You can start your sessions as your care team schedules them. You do not need to send anything else.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Finalize and issue the approval notice within the remaining standard-track clock (due 2026-07-14T10:00:00Z per get_deadline).",
+    "Confirm the authorization is written for up to 36 supervised sessions consistent with MCR-CR.",
+    "Notify the member and the prescribing cardiologist of the approval."
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-CR",
+      "quote": "within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery, stable angina, heart valve repair or replacement, coronary angioplasty or stenting",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-CR",
+      "quote": "up to 36 supervised sessions over up to 36 weeks, with physician-prescribed exercise, risk-factor modification, and outcomes assessment",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-CR",
+      "quote": "documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "those criteria govern the decision and the plan may not apply more restrictive rules of its own",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 2 required documents for cardiac_rehab are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 97 hours remain on the standard track (due 2026-07-14T10:00:00Z).",
+      "data": {
+        "hours_remaining": 97.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T10:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T10:00:00Z",
+    "hours_remaining": 97.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DOC-CR",
+      "score": 15.079,
+      "matched_terms": [
+        "cardiac",
+        "event",
+        "qualifying",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "MCR-CR",
+      "score": 8.239,
+      "matched_terms": [
+        "cardiac",
+        "coverage",
+        "criteria",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 5.467,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 4.347,
+      "matched_terms": [
+        "medicare",
+        "qualifying"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 5.747,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 5.558,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 5.386,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 97h remaining \u00b7 due 2026-07-14T10:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "cardiac rehabilitation Medicare coverage criteria qualifying event"
+      },
+      "result_digest": "query 'cardiac rehabilitation Medicare coverage criteria qualifying event' \u2192 DOC-CR (15.079), MCR-CR (8.239), COV-PRECEDENCE (5.467), COV-SNF3DAY (4.347)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "coverage criteria precedence Medicare criteria govern"
+      },
+      "result_digest": "query 'coverage criteria precedence Medicare criteria govern' \u2192 COV-PRECEDENCE (11.305), COV-INTERNAL (5.747), INT-ACU-1 (5.558), INT-IMG-1 (5.386)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "approve",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 14262,
+    "output_tokens": 1358
+  }
+}

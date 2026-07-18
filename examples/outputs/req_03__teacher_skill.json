@@ -1,0 +1,219 @@
+{
+  "request_id": "req_03",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "request_documentation",
+  "memo": "Do not finalize this draft denial. Clock: standard track, 72.0 hours remaining, due 2026-07-13T09:00:00Z, not breached (per get_deadline). File gate fails: get_file_checks reports the file is INCOMPLETE \u2014 2 of 3 required documents are missing (physician_certification, face_to_face_encounter_note). Per DOC-HH, 'A home health review requires the physician certification, the face-to-face encounter note supporting homebound status and skilled need, and the plan of care,' and 'a denial for homebound status cannot be supported while that note is missing from the file.' Per REG-INCOMPLETE, 'the appropriate action is to request the specific missing information from the provider, using an extension where allowed, rather than issuing a medical-necessity denial on an incomplete record.' The draft also fails the specific-reason check: its rationale is 'Not medically necessary.' with no specific_reason, and per REG-REASON, 'A bare statement such as \"not medically necessary\" without case-specific explanation does not satisfy this requirement.' get_file_checks flags 2 overturn-risk factors: denial drafted on an incomplete file; no specific denial reason. On the merits, the clinical picture (post hip fracture repair, wound care, anticoagulation teaching, two-person assist to leave home) maps directly to MCR-HH: 'Home health services are covered when the member is confined to the home, is under the care of a physician with a documented face-to-face encounter, and needs intermittent skilled nursing care or therapy services under a plan of care.' The missing certification and face-to-face note are exactly what would confirm those elements. Request the two documents from the agency/physician; if additional time is needed, an extension is permissible under REG-EXT only where 'the extension is in the member's interest, such as receiving additional evidence that is likely to change the decision,' with written notice to the member.",
+  "member_impact": "We are not saying no to your home nursing and physical therapy. We just need two more papers from your doctor before we can decide: a signed statement from your doctor that you need home care, and the note from your doctor's visit about your condition. We have asked your care team to send these. You do not need to do anything right now. Your request is still open.",
+  "missing_documents": [
+    "physician_certification",
+    "face_to_face_encounter_note"
+  ],
+  "recommended_actions": [
+    "Hold the draft denial \u2014 do not issue the notice",
+    "Send a documentation request to the home health agency and ordering physician for the physician certification and the face-to-face encounter note",
+    "If more time is needed, issue a written extension notice per REG-EXT (member's interest, additional evidence likely to change the decision)",
+    "Once documents arrive, re-review against MCR-HH coverage criteria",
+    "If a denial is later supported on a complete file, draft a case-specific, member-readable reason per REG-REASON before finalizing"
+  ],
+  "citations": [
+    {
+      "chunk_id": "DOC-HH",
+      "quote": "A home health review requires the physician certification, the face-to-face encounter note supporting homebound status and skilled need, and the plan of care.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-HH",
+      "quote": "a denial for homebound status cannot be supported while that note is missing from the file",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-INCOMPLETE",
+      "quote": "the appropriate action is to request the specific missing information from the provider, using an extension where allowed, rather than issuing a medical-necessity denial on an incomplete record",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "quote": "A bare statement such as 'not medically necessary' without case-specific explanation does not satisfy this requirement.",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "quote": "Home health services are covered when the member is confined to the home, is under the care of a physician with a documented face-to-face encounter, and needs intermittent skilled nursing care or therapy services under a plan of care.",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "quote": "the extension is in the member's interest, such as receiving additional evidence that is likely to change the decision",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "error",
+      "detail": "File is INCOMPLETE: 2 of 3 required documents missing (physician_certification, face_to_face_encounter_note). A medical-necessity denial on an incomplete file is the classic avoidable overturn \u2014 request the documents instead.",
+      "data": {
+        "missing": [
+          "physician_certification",
+          "face_to_face_encounter_note"
+        ]
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 72 hours remain on the standard track (due 2026-07-13T09:00:00Z).",
+      "data": {
+        "hours_remaining": 72.0
+      }
+    },
+    {
+      "check": "specific_reason",
+      "severity": "error",
+      "detail": "Draft denial has no specific, member-readable reason. A denial must state exactly why the request does not meet coverage criteria \u2014 'not medically necessary' alone is not a specific reason.",
+      "data": null
+    },
+    {
+      "check": "overturn_risk",
+      "severity": "warning",
+      "detail": "Overturn-risk factors present (2): denial drafted on an incomplete file; no specific denial reason. Published pattern: 81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.",
+      "data": {
+        "factors": [
+          "denial drafted on an incomplete file",
+          "no specific denial reason"
+        ]
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-06T09:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-13T09:00:00Z",
+    "hours_remaining": 72.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DOC-HH",
+      "score": 22.379,
+      "matched_terms": [
+        "certification",
+        "documentation",
+        "encounter",
+        "face",
+        "health",
+        "home",
+        "physician"
+      ]
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "score": 15.066,
+      "matched_terms": [
+        "encounter",
+        "face",
+        "health",
+        "home",
+        "physician"
+      ]
+    },
+    {
+      "chunk_id": "DOC-PWC",
+      "score": 10.904,
+      "matched_terms": [
+        "documentation",
+        "face",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "MCR-PWC",
+      "score": 8.089,
+      "matched_terms": [
+        "face",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "score": 12.491,
+      "matched_terms": [
+        "denial",
+        "member",
+        "reason",
+        "requirement",
+        "specific"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-QMB",
+      "score": 3.819,
+      "matched_terms": [
+        "member",
+        "notice"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "score": 3.581,
+      "matched_terms": [
+        "member",
+        "reason"
+      ]
+    },
+    {
+      "chunk_id": "REG-INCOMPLETE",
+      "score": 3.243,
+      "matched_terms": [
+        "denial",
+        "specific"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 72h remaining \u00b7 due 2026-07-13T09:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "4 findings (2 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "home health documentation requirements physician certification face-to-face encounter"
+      },
+      "result_digest": "query 'home health documentation requirements physician certification face-to-face encounter' \u2192 DOC-HH (22.379), MCR-HH (15.066), DOC-PWC (10.904), MCR-PWC (8.089)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "denial notice specific reason requirement member-readable"
+      },
+      "result_digest": "query 'denial notice specific reason requirement member-readable' \u2192 REG-REASON (12.491), DUAL-QMB (3.819), REG-EXT (3.581), REG-INCOMPLETE (3.243)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "request_documentation",
+  "groundedness": {
+    "total_quotes": 6,
+    "verified_quotes": 6,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 14647,
+    "output_tokens": 1617
+  }
+}

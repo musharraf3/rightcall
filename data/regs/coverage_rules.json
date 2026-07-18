@@ -1,0 +1,30 @@
+{
+  "_note": "Plain-language summaries of coverage-criteria precedence rules for MA utilization management (CMS-4201-F era), written for this project. Simplified for demonstration; not legal advice.",
+  "chunks": [
+    {
+      "id": "COV-PRECEDENCE",
+      "title": "Medicare coverage criteria govern when they exist",
+      "text": "A Medicare Advantage plan must follow traditional Medicare coverage criteria: national coverage determinations, applicable local coverage determinations, and Medicare statutes and regulations. When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own."
+    },
+    {
+      "id": "COV-INTERNAL",
+      "title": "Internal criteria: only in the gaps, and only in the open",
+      "text": "A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service. Internal criteria must be based on current evidence in widely used treatment guidelines or clinical literature, and must be publicly accessible, including the sources of the evidence and an explanation of the rationale. Internal criteria that cannot be shown publicly cannot be used to deny care."
+    },
+    {
+      "id": "COV-2MN",
+      "title": "Inpatient admissions: the two-midnight benchmark",
+      "text": "An inpatient admission is generally appropriate when the admitting clinician expects the member to require hospital care that crosses two midnights, or when the service is on the inpatient-only list, or when the clinician expects a shorter stay but inpatient care is nonetheless appropriate based on complex medical factors. The plan must apply this benchmark to admission reviews; it may not substitute a stricter internal screening tool as the basis for denial."
+    },
+    {
+      "id": "COV-AI",
+      "title": "Algorithms may assist; they may not decide",
+      "text": "An algorithm or software tool may be used to support a coverage decision, but it cannot be the sole basis for denying care. A medical-necessity determination must be based on the individual member's circumstances, reviewed by a clinician with relevant expertise, rather than on a population-level prediction alone. The basis of a denial must be transparent and explainable to the member and provider."
+    },
+    {
+      "id": "COV-SNF3DAY",
+      "title": "The three-day hospital stay and MA plans",
+      "text": "Traditional Medicare requires a three-day inpatient hospital stay before covering skilled nursing facility care, but a Medicare Advantage plan may waive this requirement as a plan benefit. Where the plan has waived it, a skilled nursing facility request may not be denied for lack of a qualifying hospital stay."
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "request_id": "req_09",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "STOP \u2014 do not finalize this denial. The draft contains a material evidence conflict and misapplies the Medicare homebound standard.\n\nClock: 95 hours remain. File complete. All required documentation present.\n\nMERITS CONFLICT:\n\nMedicare criteria (MCR-HH) define homebound status as: 'leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance.' The same regulation (DOC-HH) states: 'Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file.'\n\nThe face-to-face encounter note documents: 'largely bed-to-chair, requires assist of one plus a walker for any ambulation, and becomes dyspneic after 20 feet.' This clinical picture\u2014bed-to-chair mobility, need for assistance, dyspnea with minimal exertion\u2014directly supports the Medicare definition of homebound status.\n\nThe draft denial rests instead on a single statement in a telephonic utilization note (a secondary source) that the member 'attended a family barbecue last month,' without reconciling this against the face-to-face findings or addressing whether that outing was consistent with 'considerable and taxing effort' or required assistance as the regulation allows.\n\nThe draft reviewer has:\n1. Privileged a secondary telephonic note over the required face-to-face encounter documentation that governs homebound determination (DOC-HH),\n2. Interpreted an isolated social outing as dispositive of homebound status without applying the regulatory standard (\"considerable and taxing effort\") or inquiring whether the member's clinical status and assistance needs are consistent with that appearance,\n3. Created a conflict between face-to-face clinical documentation and a utilization comment that requires human judgment to resolve.\n\nA denial on this record is at high risk of appeal reversal. The file itself needs clarification: was the barbecue attended with medical assistance, was considerable effort required, or does the telephonic note reflect a misunderstanding of the member's actual functional capacity?\n\nROUTE TO MEDICAL DIRECTOR: Request reconciliation of the conflicting evidence and re-review against MCR-HH. Do not send a notice until this conflict is resolved.",
+  "member_impact": "We stopped your home health decision before it was sent out. Your doctor's written exam says you need help to move around and get very short of breath, which means you qualify for home health care. A note in a phone call said you went to a family gathering, and the first reviewer thought that meant you don't qualify. But one outing doesn't mean you're not homebound\u2014what matters is whether leaving home is really hard and takes a lot of effort, or if you need help to do it. Your exam shows you do. A senior clinical reviewer is looking at this now to make sure the decision is right.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Route to medical director for conflict resolution",
+    "Request clinical team to clarify whether the barbecue attendance was with medical assistance, whether considerable effort was required, and whether it is consistent with the documented bed-to-chair status and dyspnea at 20 feet",
+    "Re-review against MCR-HH only after conflict is resolved",
+    "Do not send notice until escalation is complete"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-HH",
+      "quote": "Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-HH",
+      "quote": "Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "A Medicare Advantage plan must follow traditional Medicare coverage criteria: national coverage determinations, applicable local coverage determinations, and Medicare statutes and regulations. When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for home_health are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 95 hours remain on the standard track (due 2026-07-14T08:00:00Z).",
+      "data": {
+        "hours_remaining": 95.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T08:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T08:00:00Z",
+    "hours_remaining": 95.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DOC-HH",
+      "score": 15.62,
+      "matched_terms": [
+        "health",
+        "home",
+        "homebound",
+        "status"
+      ]
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "score": 7.203,
+      "matched_terms": [
+        "coverage",
+        "health",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "MCR-PWC",
+      "score": 3.884,
+      "matched_terms": [
+        "coverage",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 3.801,
+      "matched_terms": [
+        "coverage",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 7.181,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 6.226,
+      "matched_terms": [
+        "medicare",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "score": 2.264,
+      "matched_terms": [
+        "medically"
+      ]
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "score": 1.928,
+      "matched_terms": [
+        "medically"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 95h remaining \u00b7 due 2026-07-14T08:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "homebound status definition home health Medicare coverage"
+      },
+      "result_digest": "query 'homebound status definition home health Medicare coverage' \u2192 DOC-HH (15.62), MCR-HH (7.203), MCR-PWC (3.884), COV-PRECEDENCE (3.801)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "home health skilled nursing Medicare coverage criteria"
+      },
+      "result_digest": "query 'home health skilled nursing Medicare coverage criteria' \u2192 MCR-HH (11.434), DOC-HH (7.59), MCR-SNF (7.181), COV-SNF3DAY (6.226)"
+    },
+    {
+      "step": 5,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "homebound definition considerable taxing effort medically contraindicated outings"
+      },
+      "result_digest": "query 'homebound definition considerable taxing effort medically contraindicated outings' \u2192 MCR-HH (12.954), DOC-HH (5.211), REG-REASON (2.264), MCR-INPT (1.928)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Evidence conflict: face-to-face encounter note (the regulatory source for homebound determination) documents bed-to-chair status, assistance requirement, and dyspnea at 20 feet, consistent with Medicare homebound definition. Denial rests on a secondary telephonic note referencing a single social outing, interpreted without reconciliation against the clinical picture or application of the 'considerable and taxing effort' standard. Denial is high-risk for appeal reversal. Human judgment required to resolve conflict.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 13537,
+    "output_tokens": 1915
+  }
+}

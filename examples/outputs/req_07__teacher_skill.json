@@ -1,0 +1,199 @@
+{
+  "request_id": "req_07",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "ESCALATE \u2014 do not release this notice. Clock is healthy (standard track, 100.0 hours remaining, due 2026-07-14T13:00:00Z per get_deadline) and the file is complete ('File is complete: all 3 required documents for inpatient_admission are present.' per get_file_checks). The draft fails the compliance gate: the code checks flag a criteria-precedence error \u2014 'Draft denial rests on internal criteria (INT-IMG-1), but Medicare coverage criteria for inpatient_admission are established (see MCR-INPT). Where Medicare criteria exist, they govern \u2014 internal criteria may only fill gaps.' The precedence rule is explicit: 'When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own' (COV-PRECEDENCE). The two-midnight benchmark bars exactly what the draft did: the plan 'may not substitute a stricter internal screening tool as the basis for denial' (COV-2MN). Compounding the error, INT-IMG-1 is an advanced-imaging appropriateness criterion \u2014 'For advanced imaging where Medicare coverage criteria are not fully established for the specific indication' (INT-IMG-1) \u2014 which has no application to an inpatient admission review. On the merits, the clinical summary appears to satisfy MCR-INPT: 'Inpatient admission is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights' \u2014 here a 76M with high-risk TIA (ABCD2 6), new atrial fibrillation, and a documented two-midnight expectation for telemetry, MRI/MRA, anticoagulation initiation with monitoring, and swallow evaluation; note also that 'Observation status is not a required first step when admission criteria are met at presentation' (MCR-INPT). The overturn-risk check warns: '81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.' Route to the medical director for re-review under MCR-INPT/COV-2MN; the draft as written cannot be finalized.",
+  "member_impact": "Your hospital stay request is still being reviewed. We found a problem with the first draft of the decision, so we sent it to a senior reviewer to take another look using the correct Medicare rules. You do not need to do anything right now. We will send you our decision by the required deadline.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Route the case to the medical director for re-review against the Medicare two-midnight benchmark (MCR-INPT, COV-2MN) instead of the internal screening tool",
+    "Retract the draft denial rationale citing INT-IMG-1; that criterion applies to advanced imaging, not inpatient admission",
+    "Coach the drafting reviewer on criteria precedence: internal tools may not override established Medicare inpatient admission criteria",
+    "Ensure the re-review is completed within the remaining decision clock (100 hours, due 2026-07-14T13:00:00Z)"
+  ],
+  "citations": [
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-2MN",
+      "quote": "it may not substitute a stricter internal screening tool as the basis for denial",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "quote": "Inpatient admission is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "quote": "Observation status is not a required first step when admission criteria are met at presentation.",
+      "verified": true
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "quote": "For advanced imaging where Medicare coverage criteria are not fully established for the specific indication",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for inpatient_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 100 hours remain on the standard track (due 2026-07-14T13:00:00Z).",
+      "data": {
+        "hours_remaining": 100.0
+      }
+    },
+    {
+      "check": "criteria_precedence",
+      "severity": "error",
+      "detail": "Draft denial rests on internal criteria (INT-IMG-1), but Medicare coverage criteria for inpatient_admission are established (see MCR-INPT). Where Medicare criteria exist, they govern \u2014 internal criteria may only fill gaps.",
+      "data": null
+    },
+    {
+      "check": "overturn_risk",
+      "severity": "warning",
+      "detail": "Overturn-risk factors present (1): internal criteria conflict with Medicare criteria. Published pattern: 81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.",
+      "data": {
+        "factors": [
+          "internal criteria conflict with Medicare criteria"
+        ]
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T13:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T13:00:00Z",
+    "hours_remaining": 100.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "COV-2MN",
+      "score": 15.343,
+      "matched_terms": [
+        "admission",
+        "benchmark",
+        "inpatient",
+        "midnight",
+        "two"
+      ]
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "score": 9.283,
+      "matched_terms": [
+        "admission",
+        "coverage",
+        "criteria",
+        "inpatient",
+        "two"
+      ]
+    },
+    {
+      "chunk_id": "DOC-INPT",
+      "score": 5.77,
+      "matched_terms": [
+        "admission",
+        "inpatient"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 5.467,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 8.717,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 8.187,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 7.063,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 100h remaining \u00b7 due 2026-07-14T13:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "4 findings (1 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "inpatient admission two-midnight benchmark Medicare coverage criteria"
+      },
+      "result_digest": "query 'inpatient admission two-midnight benchmark Medicare coverage criteria' \u2192 COV-2MN (15.343), MCR-INPT (9.283), DOC-INPT (5.77), COV-PRECEDENCE (5.467)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "coverage criteria precedence internal criteria Medicare"
+      },
+      "result_digest": "query 'coverage criteria precedence internal criteria Medicare' \u2192 COV-INTERNAL (8.717), INT-ACU-1 (8.187), COV-PRECEDENCE (7.134), INT-IMG-1 (7.063)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Code-detected criteria-precedence error: draft denial rests on internal criteria (INT-IMG-1) where Medicare coverage criteria for inpatient admission (MCR-INPT, two-midnight benchmark) govern; overturn-risk factors flagged.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 15046,
+    "output_tokens": 1749
+  }
+}

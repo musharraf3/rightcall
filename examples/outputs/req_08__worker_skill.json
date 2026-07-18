@@ -1,0 +1,136 @@
+{
+  "request_id": "req_08",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "denial_supported",
+  "memo": "The draft denial is correct and is supported for finalization. The request seeks 20 acupuncture wellness visits; the member has already used 8 of the plan's 12-visit annual limit, leaving 4 visits available this calendar year. The denial correctly applies the published supplemental-benefit criterion INT-ACU-1, which limits acupuncture wellness to 12 visits per calendar year with physician referral. Acupuncture is not covered by traditional Medicare, so internal criteria are appropriate here. The criterion is published on the plan website with its clinical rationale and evidence sources, as required. The file is complete and the member is not dual-eligible. The draft's specific reason is accurate and member-readable. No compliance issues detected. The notice may proceed.",
+  "member_impact": "Your plan's acupuncture wellness benefit covers up to 12 visits each calendar year. You have already used 8 visits this year. That leaves 4 visits you can still use before the year ends. You asked for 20 more visits, which is more than your benefit allows. We are not able to cover visits beyond the yearly limit of 12.",
+  "missing_documents": [],
+  "recommended_actions": [],
+  "citations": [
+    {
+      "chunk_id": "INT-ACU-1",
+      "quote": "The Sunrise Advantage supplemental acupuncture wellness benefit covers up to 12 visits per calendar year with a licensed acupuncturist upon physician referral. This is a supplemental benefit beyond traditional Medicare, and Medicare coverage criteria are not established for it; these internal criteria are published on the plan website with their clinical rationale and evidence sources, as required for internal criteria. Requests beyond 12 visits per year are outside the benefit.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "quote": "A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service. Internal criteria must be based on current evidence in widely used treatment guidelines or clinical literature, and must be publicly accessible, including the sources of the evidence and an explanation of the rationale.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 1 required documents for acupuncture_wellness are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 78 hours remain on the standard track (due 2026-07-13T15:00:00Z).",
+      "data": {
+        "hours_remaining": 78.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-06T15:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-13T15:00:00Z",
+    "hours_remaining": 78.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 20.823,
+      "matched_terms": [
+        "acupuncture",
+        "benefit",
+        "supplemental",
+        "visits",
+        "wellness"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 2.546,
+      "matched_terms": [
+        "benefit"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 4.722,
+      "matched_terms": [
+        "criteria",
+        "internal"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 3.365,
+      "matched_terms": [
+        "criteria",
+        "internal"
+      ]
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 3.308,
+      "matched_terms": [
+        "criteria",
+        "internal"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 78h remaining \u00b7 due 2026-07-13T15:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "acupuncture supplemental benefit limit wellness visits"
+      },
+      "result_digest": "query 'acupuncture supplemental benefit limit wellness visits' \u2192 INT-ACU-1 (20.823), COV-SNF3DAY (2.546)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "supplemental benefit internal criteria visit limits"
+      },
+      "result_digest": "query 'supplemental benefit internal criteria visit limits' \u2192 INT-ACU-1 (13.192), COV-INTERNAL (4.722), INT-IMG-1 (3.365), INT-SNF-2 (3.308)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "denial_supported",
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 7593,
+    "output_tokens": 1115
+  }
+}

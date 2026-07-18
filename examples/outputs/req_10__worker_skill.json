@@ -1,0 +1,73 @@
+{
+  "request_id": "req_10",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "CRITICAL COMPLIANCE FAILURE: The expedited decision deadline was breached 21 hours ago. Received 2026-07-06 at 12:00 UTC; expedited deadline was 2026-07-09 at 12:00 UTC (72 hours). Current time is 2026-07-10 at 09:00 UTC. An untimely determination\u2014even an approval\u2014is itself a regulatory failure and cannot be finalized. The notice must not go out. Escalate to medical director and compliance officer immediately. The member has been waiting for a decision while occupying an acute bed; this delay carries both clinical and legal risk. Recommend: (1) halt the notice, (2) coordinate with the facility to hold the bed or arrange emergency placement pending a same-day redetermination, (3) document the breach and root cause, (4) escalate to appeals and compliance for internal review.",
+  "member_impact": "We are very sorry. Your nursing home approval decision has been delayed beyond the deadline we were supposed to meet. We are immediately escalating this to our leadership team to fix it and get you a fast answer today.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "DO NOT FINALIZE OR SEND THIS NOTICE",
+    "Escalate immediately to medical director and compliance",
+    "Coordinate with acute care facility regarding bed hold",
+    "Redetermine the request same-day under expedited track",
+    "Document the breach and corrective action in the member's file",
+    "Review triage/processing procedures to identify why the 72-hour clock was missed"
+  ],
+  "citations": [],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 4 required documents for snf_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "error",
+      "detail": "Decision clock BREACHED: the expedited deadline was 2026-07-09T12:00:00Z and it is now 2026-07-10T09:00:00Z. An untimely adverse determination is itself a compliance failure \u2014 escalate.",
+      "data": {
+        "hours_remaining": -21.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "expedited",
+    "received_at": "2026-07-06T12:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-09T12:00:00Z",
+    "hours_remaining": -21.0,
+    "breached": true
+  },
+  "retrieval": [],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "expedited track \u00b7 -21h remaining \u00b7 due 2026-07-09T12:00:00Z \u00b7 BREACHED"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (1 error-level)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Decision clock breached: expedited deadline 2026-07-09T12:00:00Z has passed; current time 2026-07-10T09:00:00Z (21 hours overdue). An untimely determination is a compliance failure regardless of approval/denial. The notice cannot be finalized.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 0,
+    "verified_quotes": 0,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 6432,
+    "output_tokens": 729
+  }
+}

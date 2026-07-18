@@ -1,0 +1,192 @@
+{
+  "request_id": "req_03",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "request_documentation",
+  "memo": "The draft denial cannot be finalized. The file is incomplete and the draft lacks the required specificity. Two critical documents are missing: (1) physician certification and (2) face-to-face encounter note. Per DOC-HH, 'Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file.' The draft's rationale is 'Not medically necessary' with no specific reason. Per REG-REASON, 'A bare statement such as \"not medically necessary\" without case-specific explanation does not satisfy this requirement.' On a complete file, home health services are covered when the member is confined to the home, is under the care of a physician with a documented face-to-face encounter, and needs intermittent skilled nursing care or therapy services under a plan of care (MCR-HH). The clinical summary indicates the member is homebound (cannot leave home without two-person assist) and requires skilled nursing for wound care and anticoagulation teaching plus PT post-hip fracture. Request the missing documents before proceeding. A denial on an incomplete file is a high-risk overturn pattern.",
+  "member_impact": "We need more information before we can make a decision about your home health request. Please ask your doctor's office to send us a note from the face-to-face visit that confirms you need to stay home and need skilled care, and the doctor's written order for home health services. Once we have these, we can review your request fully.",
+  "missing_documents": [
+    "physician_certification",
+    "face_to_face_encounter_note"
+  ],
+  "recommended_actions": [
+    "Request physician_certification and face_to_face_encounter_note from the referring provider immediately",
+    "Do not finalize the draft denial \u2014 denying on an incomplete file carries high overturn risk",
+    "Suspend the decision clock pending receipt of the missing documents, or formally notify the member of a brief extension if appropriate"
+  ],
+  "citations": [
+    {
+      "chunk_id": "DOC-HH",
+      "quote": "A home health review requires the physician certification, the face-to-face encounter note supporting homebound status and skilled need, and the plan of care. Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file.",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "quote": "A denial must include a specific reason for the denial, stated in a way the member can understand, so the member and provider can decide whether to resubmit with more information or to appeal. A bare statement such as 'not medically necessary' without case-specific explanation does not satisfy this requirement.",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "quote": "Home health services are covered when the member is confined to the home, is under the care of a physician with a documented face-to-face encounter, and needs intermittent skilled nursing care or therapy services under a plan of care. Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance. Maintenance therapy in the home is covered when skilled care is required to maintain function or prevent decline.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "error",
+      "detail": "File is INCOMPLETE: 2 of 3 required documents missing (physician_certification, face_to_face_encounter_note). A medical-necessity denial on an incomplete file is the classic avoidable overturn \u2014 request the documents instead.",
+      "data": {
+        "missing": [
+          "physician_certification",
+          "face_to_face_encounter_note"
+        ]
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 72 hours remain on the standard track (due 2026-07-13T09:00:00Z).",
+      "data": {
+        "hours_remaining": 72.0
+      }
+    },
+    {
+      "check": "specific_reason",
+      "severity": "error",
+      "detail": "Draft denial has no specific, member-readable reason. A denial must state exactly why the request does not meet coverage criteria \u2014 'not medically necessary' alone is not a specific reason.",
+      "data": null
+    },
+    {
+      "check": "overturn_risk",
+      "severity": "warning",
+      "detail": "Overturn-risk factors present (2): denial drafted on an incomplete file; no specific denial reason. Published pattern: 81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.",
+      "data": {
+        "factors": [
+          "denial drafted on an incomplete file",
+          "no specific denial reason"
+        ]
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-06T09:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-13T09:00:00Z",
+    "hours_remaining": 72.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "MCR-HH",
+      "score": 11.434,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "health",
+        "home",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "score": 9.062,
+      "matched_terms": [
+        "medical",
+        "necessity",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "DOC-HH",
+      "score": 7.59,
+      "matched_terms": [
+        "health",
+        "home",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 7.181,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "score": 6.642,
+      "matched_terms": [
+        "denial",
+        "member",
+        "reason"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "score": 3.581,
+      "matched_terms": [
+        "member",
+        "reason"
+      ]
+    },
+    {
+      "chunk_id": "COV-AI",
+      "score": 2.245,
+      "matched_terms": [
+        "denial",
+        "member"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 72h remaining \u00b7 due 2026-07-13T09:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "4 findings (2 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "home health skilled nursing coverage criteria medical necessity"
+      },
+      "result_digest": "query 'home health skilled nursing coverage criteria medical necessity' \u2192 MCR-HH (11.434), DOC-SNF (9.062), DOC-HH (7.59), MCR-SNF (7.181)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "denial specificity member-readable reason requirements"
+      },
+      "result_digest": "query 'denial specificity member-readable reason requirements' \u2192 REG-REASON (6.642), REG-EXT (3.581), COV-AI (2.245), MCR-SNF (2.236)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "request_documentation",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 7707,
+    "output_tokens": 1260
+  }
+}

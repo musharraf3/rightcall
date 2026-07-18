@@ -1,0 +1,127 @@
+{
+  "request_id": "req_04",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "denial_supported",
+  "memo": "Draft denial is correct and may be finalized. The file is complete and the clinical evidence unambiguously shows that in-home mobility-related ADLs (toileting, kitchen access, safe transfers) are independently and safely performed with the member's current rollator walker in a barrier-free single-level home. MCR-PWC explicitly requires that a mobility limitation significantly impair IN-HOME ADL function and that the limitation cannot be resolved by a walker. The member's stated goal\u2014use for outings to the senior center and park\u2014places the need squarely in the category MCR-PWC excludes: 'equipment intended primarily for mobility outside the home, for leisure, or for community convenience.' The rationale is specific, accurate, and well-supported. No compliance issues detected.",
+  "member_impact": "We cannot approve a power wheelchair for this request. Our coverage rules require that a wheelchair be needed to help with daily activities inside your home\u2014like getting to the bathroom, kitchen, or bedroom\u2014and that your current walker doesn't work safely for those tasks. Your doctor's exam shows that you can move around your home safely and independently with your walker. You said you want the power chair mainly for trips outside\u2014to the senior center and park. That's outdoor use, not in-home activities. Our coverage doesn't include wheelchairs for outdoor trips or community outings, even though we understand those trips are important to you.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Finalize the denial notice as drafted.",
+    "Ensure the member understands the distinction between in-home ADL mobility and community mobility in any appeal correspondence."
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-PWC",
+      "quote": "A power wheelchair is covered when the member has a mobility limitation that significantly impairs the ability to perform mobility-related activities of daily living such as toileting, feeding, dressing, and bathing IN THE HOME, and the limitation cannot be adequately and safely resolved by a cane, walker, or optimally configured manual wheelchair. ... Equipment intended primarily for mobility outside the home, for leisure, or for community convenience does not meet the in-home standard.",
+      "verified": false
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for power_wheelchair are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 55 hours remain on the standard track (due 2026-07-12T16:00:00Z).",
+      "data": {
+        "hours_remaining": 55.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-05T16:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-12T16:00:00Z",
+    "hours_remaining": 55.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "MCR-PWC",
+      "score": 18.129,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "equipment",
+        "home",
+        "mobility",
+        "power",
+        "wheelchair"
+      ]
+    },
+    {
+      "chunk_id": "DOC-PWC",
+      "score": 17.517,
+      "matched_terms": [
+        "equipment",
+        "home",
+        "mobility",
+        "power",
+        "wheelchair"
+      ]
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "score": 5.2,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 3.125,
+      "matched_terms": [
+        "coverage",
+        "criteria"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 55h remaining \u00b7 due 2026-07-12T16:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "power wheelchair mobility equipment in-home coverage criteria MCR-PWC"
+      },
+      "result_digest": "query 'power wheelchair mobility equipment in-home coverage criteria MCR-PWC' \u2192 MCR-PWC (18.129), DOC-PWC (17.517), MCR-HH (5.2), COV-PRECEDENCE (3.125)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Groundedness below threshold \u2014 too many memo statements could not be verified against the retrieved sources. Route to a human reviewer.",
+  "policy_notes": [],
+  "model_decision": "denial_supported",
+  "groundedness": {
+    "total_quotes": 1,
+    "verified_quotes": 0,
+    "unverified": [
+      "[MCR-PWC] (quote not found in cited chunk) \u201cA power wheelchair is covered when the member has a mobility limitation that significantly impairs the ability to perform mobility-related activities of daily living such as toileting, feeding, dressing, and bathing IN THE HOME, and the limitation cannot be adequately and safely resolved by a cane, walker, or optimally configured manual wheelchair. ... Equipment intended primarily for mobility outside the home, for leisure, or for community convenience does not meet the in-home standard.\u201d"
+    ]
+  },
+  "usage": {
+    "input_tokens": 7377,
+    "output_tokens": 1207
+  }
+}

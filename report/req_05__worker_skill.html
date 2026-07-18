@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>RightCall — req_05</title><style>
+:root{--ink:#1a202c;--sub:#5a6472;--line:#e2e8f0;--brand:#1d4e89;--brand-lt:#e8f0fa;
+--ok:#1a7f37;--ok-bg:#e8f5ec;--warn:#9a6700;--warn-bg:#fff8e5;--err:#b42318;--err-bg:#fdecea;
+--chip:#eef2f7;--trace:#102a43}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--ink);
+background:#f5f7fa;padding:28px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto}
+header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+header h1{font-size:26px;color:var(--brand)}
+header .tag{color:var(--sub);font-size:13px}
+.banner{border-radius:10px;padding:12px 16px;font-weight:700;margin:14px 0;font-size:15px}
+.banner.approve{background:var(--ok-bg);border:1.5px solid var(--ok);color:var(--ok)}
+.banner.request_documentation{background:var(--brand-lt);border:1.5px solid var(--brand);color:var(--brand)}
+.banner.denial_supported{background:var(--chip);border:1.5px solid var(--sub);color:var(--ink)}
+.banner.escalate_human{background:var(--warn-bg);border:1.5px solid var(--warn);color:var(--warn)}
+.clock{display:inline-block;font-family:Consolas,monospace;font-size:12.5px;padding:3px 10px;
+border-radius:999px;background:var(--chip)}
+.clock.breach{background:var(--err-bg);color:var(--err);font-weight:700}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+margin:14px 0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.card h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);
+margin-bottom:10px}
+.finding{border-left:4px solid;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:14px}
+.finding.error{border-color:var(--err);background:var(--err-bg)}
+.finding.warning{border-color:var(--warn);background:var(--warn-bg)}
+.finding.info{border-color:var(--sub);background:var(--chip)}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+padding:2px 9px;border-radius:999px;text-transform:uppercase}
+.badge.code{background:var(--trace);color:#fff}
+.badge.err{background:var(--err-bg);color:var(--err)}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}
+.trace{font-family:Consolas,monospace;font-size:12.5px}
+.trace .step{display:flex;gap:10px;padding:7px 10px;border-left:3px solid var(--brand);
+background:#fafbfc;border-radius:6px;margin:6px 0;align-items:baseline}
+.trace .n{color:#fff;background:var(--brand);border-radius:999px;min-width:20px;height:20px;
+display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex:none}
+.trace .tool{color:var(--brand);font-weight:700}
+.trace .in{color:var(--sub)}
+.memo{font-size:14.5px;white-space:pre-wrap}
+.impact{background:var(--brand-lt);border:1px solid var(--brand);border-radius:8px;
+padding:10px 14px;font-size:14px;margin-top:10px}
+.cite{background:#fafbfc;border:1px solid var(--line);border-radius:8px;padding:8px 12px;
+margin:8px 0 0;font-size:13.5px}
+.cite .src{color:var(--brand);font-weight:600}
+.cite .q{font-style:italic;color:var(--sub)}
+.retr{font-size:12.5px;color:var(--sub);margin-top:8px;font-family:Consolas,monospace}
+.retr .bar{display:inline-block;height:8px;background:var(--brand);border-radius:4px;
+vertical-align:middle;margin-right:6px}
+.actions li{margin:6px 0 6px 4px}
+.policy{background:var(--err-bg);border:1.5px solid var(--err);border-radius:10px;
+padding:12px 16px;margin:14px 0;font-size:13.5px}
+.policy b{color:var(--err)}
+.escalate{background:var(--warn-bg);border:1.5px solid var(--warn);color:var(--warn);
+border-radius:10px;padding:12px 16px;font-weight:600;margin:14px 0}
+footer{color:var(--sub);font-size:12.5px;margin-top:18px;border-top:1px solid var(--line);
+padding-top:12px}
+.gg{font-weight:600}
+</style></head><body><div class="wrap">
+<header><h1>RightCall</h1><span class="tag">pre-decision review ·
+Sunrise Advantage D-SNP (HMO) — SYNTHETIC · claude-haiku-4-5-20251001 · arm: worker+skill</span></header>
+<div style="margin:6px 0 0"><span class="clock">standard track · due 2026-07-15T11:00:00Z · 122h remaining</span></div>
+<div class="banner escalate_human">ESCALATE — a human decides this one</div>
+<div class="card"><h2>Case</h2>
+<p><b>Cardiac rehabilitation program, 24 sessions</b> — Marisol Quintero (SYNTHETIC),
+SYN-UM-0005, dual status: qmb</p>
+<p style="color:var(--sub);font-size:13.5px;margin-top:6px">70F, CABG on 2026-05-30, cardiologist prescribes supervised cardiac rehabilitation. QMB-tier dual eligible; state Medicaid coordinates cost sharing.</p></div><div class="card"><h2>Pre-decision checks <span class="badge code">computed in code — not by AI</span></h2><div class="finding info"><b>documentation</b><div>File is complete: all 2 required documents for cardiac_rehab are present.</div></div><div class="finding info"><b>deadline</b><div>Decision clock: 122 hours remain on the standard track (due 2026-07-15T11:00:00Z).</div></div><div class="finding info"><b>dual_qmb</b><div>Member is QMB-tier dual eligible: zero Medicare cost sharing may be charged, and providers may not balance bill. Medicaid coordinates as secondary payer.</div></div><div class="finding error"><b>dual_qmb</b><div>Draft decision imposes $45.00 cost sharing on a QMB member. QMB members owe $0 — this must be corrected before any notice goes out.</div></div></div><div class="card"><h2>Agent tool trace <span class="badge code">every step logged</span></h2><div class="trace"><div class="step"><span class="n">1</span><span><span class="tool">get_deadline</span><span class="in">()</span> → standard track · 122h remaining · due 2026-07-15T11:00:00Z</span></div><div class="step"><span class="n">2</span><span><span class="tool">get_file_checks</span><span class="in">()</span> → 4 findings (1 error-level)</span></div><div class="step"><span class="n">3</span><span><span class="tool">lookup_rules</span><span class="in">({&quot;query&quot;: &quot;QMB dual eligible cost sharing Medicare cost sharing&quot;})</span> → query &#x27;QMB dual eligible cost sharing Medicare cost sharing&#x27; → DUAL-QMB (20.946), DUAL-LAST (20.141), DUAL-DSNP (12.585), COV-PRECEDENCE (2.342)</span></div><div class="step"><span class="n">4</span><span><span class="tool">lookup_rules</span><span class="in">({&quot;query&quot;: &quot;cardiac rehabilitation coverage criteria Medicare&quot;})</span> → query &#x27;cardiac rehabilitation coverage criteria Medicare&#x27; → DOC-CR (8.472), MCR-CR (8.239), COV-PRECEDENCE (5.467), COV-INTERNAL (3.995)</span></div></div></div><div class="card"><h2>Review memo</h2><div class="memo">STOP: Do not issue this notice. The draft approves cardiac rehabilitation correctly under MCR-CR but commits a QMB cost-sharing violation. The member is QMB-tier dual eligible and cannot be charged the $45 copay shown in the draft. Per DUAL-QMB: &#x27;A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services.&#x27; The file is complete, the clinical criteria are met (CABG on 2026-05-30 within the 12-month window; physician referral on file), and the decision itself is correct—but the member responsibility must be zeroed before any notice goes out. Correct the member_cost_share to $0.00, re-review for Medicaid coordination per DUAL-DSNP, and then route for final issuance.</div><div class="impact"><b>Member impact (plain language):</b> Your cardiac rehab program has been approved for 24 sessions. Because you are in the Qualified Medicare Beneficiary program, you do not owe any Medicare copays for this service. You will not receive a bill from Medicare for this program.</div></div><div class="card"><h2>Citations — machine-verified</h2><div class="cite"><span class="src">[DUAL-QMB] Qualified Medicare Beneficiary (QMB): zero cost sharing</span> <span class="badge ok">verified</span><div class="q">“A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services.”</div></div><div class="cite"><span class="src">[DUAL-QMB] Qualified Medicare Beneficiary (QMB): zero cost sharing</span> <span class="badge ok">verified</span><div class="q">“Any decision that imposes cost sharing on a QMB member is incorrect regardless of the coverage outcome.”</div></div><div class="cite"><span class="src">[MCR-CR] Cardiac rehabilitation: coverage criteria</span> <span class="badge ok">verified</span><div class="q">“Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery, stable angina, heart valve repair or replacement, coronary angioplasty or stenting, or a heart or heart-lung transplant.”</div></div><div class="cite"><span class="src">[DUAL-DSNP] Dual-eligible special needs plans: coordination duties</span> <span class="badge ok">verified</span><div class="q">“A dual-eligible special needs plan must coordinate the member&#x27;s Medicare and Medicaid benefits, including sharing information needed for the state to adjudicate its portion.”</div></div><div class="retr"><b>why these sources (retrieval scores):</b><div><span class="bar" style="width:70px"></span>DUAL-QMB · BM25 20.946 · matched: cost, medicare, qmb, sharing</div><div><span class="bar" style="width:67px"></span>DUAL-LAST · BM25 20.141 · matched: cost, dual, eligible, medicare, qmb, sharing</div><div><span class="bar" style="width:42px"></span>DUAL-DSNP · BM25 12.585 · matched: dual, eligible, medicare, sharing</div><div><span class="bar" style="width:28px"></span>DOC-CR · BM25 8.472 · matched: cardiac, rehabilitation</div><div><span class="bar" style="width:27px"></span>MCR-CR · BM25 8.239 · matched: cardiac, coverage, criteria, rehabilitation</div></div></div><div class="card"><h2>Recommended actions</h2><ol class="actions"><li>Correct member_cost_share from $45.00 to $0.00 in the decision.</li><li>Verify Medicaid coordination: confirm state Medicaid has been notified and claim routing is set up per DUAL-DSNP.</li><li>Route to compliance review before final issuance to prevent a QMB violation notice.</li><li>Reissue the notice with zero cost sharing.</li></ol></div><div class="escalate">⚠ Human hand-off: QMB cost-sharing violation: draft imposes $45 copay on a QMB member. Per DUAL-QMB, this is incorrect regardless of coverage outcome. File is complete and clinical criteria are met; compliance error alone requires routing for correction before notice issuance.</div><footer><span class="gg">Groundedness guard: 4/4 citations verified verbatim against chunks actually retrieved in this review.</span>
+The decision clock, file checks, citation verification, and policy overrides are
+deterministic code — inspect them in the repo. RightCall supports human reviewers;
+it does not make coverage decisions. All data on this page is synthetic.</footer>
+</div></body></html>

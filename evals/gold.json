@@ -1,0 +1,73 @@
+{
+  "_note": "Gold labels for the 10 synthetic cases. 'decision' is an accept-list scored against the MODEL'S raw decision (before code policy overrides). 'expected_flags' are error-level findings deterministic code must produce (identical across arms; reported, not an arm differentiator). 'required_tools' drives the tool-discipline metric.",
+  "req_01": {
+    "decision": ["approve"],
+    "must_mention": [["cardiac rehab"], ["qualifying", "stent", "within twelve months", "within 12 months"], ["36 sessions", "criteria met", "criteria are met"]],
+    "expected_flags": [],
+    "expected_escalate": false,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_02": {
+    "decision": ["escalate_human"],
+    "must_mention": [["maintain", "maintenance", "slow decline", "slow further deterioration"], ["INT-SNF-2", "internal guideline", "internal criteria", "legacy"], ["overturn", "appeal"]],
+    "expected_flags": ["criteria_precedence", "improvement_standard", "overturn_risk"],
+    "expected_escalate": true,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_03": {
+    "decision": ["request_documentation"],
+    "must_mention": [["face-to-face", "face to face"], ["physician certification", "certification"], ["request", "missing", "incomplete"]],
+    "expected_flags": ["documentation", "specific_reason"],
+    "expected_escalate": false,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_04": {
+    "decision": ["denial_supported"],
+    "must_mention": [["in the home", "in-home"], ["walker", "rollator"], ["outside the home"]],
+    "expected_flags": [],
+    "expected_escalate": false,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_05": {
+    "decision": ["escalate_human"],
+    "must_mention": [["QMB", "Qualified Medicare Beneficiary"], ["cannot be charged", "zero cost", "no cost sharing", "$0", "owe nothing", "owes no"], ["45"]],
+    "expected_flags": ["dual_qmb"],
+    "expected_escalate": true,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_06": {
+    "decision": ["approve"],
+    "must_mention": [["two midnights", "two-midnight"], ["expedited", "72", "clock", "hours remain"]],
+    "expected_flags": [],
+    "expected_escalate": false,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_07": {
+    "decision": ["escalate_human"],
+    "must_mention": [["two midnights", "two-midnight"], ["screening tool", "internal"], ["sole basis", "may not substitute", "algorithm", "benchmark"]],
+    "expected_flags": ["criteria_precedence"],
+    "expected_escalate": true,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_08": {
+    "decision": ["denial_supported"],
+    "must_mention": [["12 visits", "twelve visits"], ["4", "four"], ["supplemental"]],
+    "expected_flags": [],
+    "expected_escalate": false,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_09": {
+    "decision": ["escalate_human"],
+    "must_mention": [["conflict", "contradict", "inconsistent", "mischaracterize"], ["bed-to-chair", "bed to chair", "dyspneic", "assist of one"], ["homebound"]],
+    "expected_flags": [],
+    "expected_escalate": true,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  },
+  "req_10": {
+    "decision": ["escalate_human"],
+    "must_mention": [["breach", "missed", "late", "untimely", "expired"], ["72"], ["forward", "independent review", "compliance"]],
+    "expected_flags": ["deadline"],
+    "expected_escalate": true,
+    "required_tools": ["lookup_rules", "get_file_checks", "get_deadline"]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "request_id": "req_05",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "ESCALATE \u2014 do not finalize this notice. The clock is healthy (standard track, 122.0 hours remaining, due 2026-07-15T11:00:00Z per get_deadline; not breached) and the file is complete ('File is complete: all 2 required documents for cardiac_rehab are present.' per get_file_checks), but the compliance gate fails: get_file_checks flags an error \u2014 'Draft decision imposes $45.00 cost sharing on a QMB member. QMB members owe $0 \u2014 this must be corrected before any notice goes out.' The drafting reviewer attached a $45 copay to a QMB-tier dual eligible. Under DUAL-QMB, 'A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services' and 'Any decision that imposes cost sharing on a QMB member is incorrect regardless of the coverage outcome.' State Medicaid coordinates as secondary: per DUAL-LAST, 'claims for QMB cost sharing cross over to the state for adjudication.' On the merits, the underlying approval is sound: the draft correctly applies Medicare criteria (MCR-CR: 'Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery...'), the CABG on 2026-05-30 is a qualifying event within twelve months, and both required documents (DOC-CR: 'documentation of the qualifying cardiac event within the preceding twelve months and the physician referral') are on file. The fix is narrow: set member_cost_share to $0.00, correct the notice language so it does not instruct the member to pay, and re-issue the approval. The coverage determination itself should not change.",
+  "member_impact": "Good news: your cardiac rehab program is expected to be approved. Your doctor's referral and your recent heart surgery meet Medicare's rules. Before we send the final letter, we are fixing one mistake: the draft listed a $45 copay. Because of your coverage type, you owe $0 for this service, and no provider may bill you for it. You do not need to do anything right now.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Route the draft to a supervisor or medical director to correct the cost-sharing field before any notice is issued",
+    "Set member_cost_share to $0.00 for this QMB member and remove any copay language from the notice",
+    "Confirm the notice reflects Medicaid as secondary payer for cost-sharing crossover",
+    "Re-issue the approval with the corrected $0 member responsibility within the standard-track deadline (2026-07-15T11:00:00Z)"
+  ],
+  "citations": [
+    {
+      "chunk_id": "DUAL-QMB",
+      "quote": "A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DUAL-QMB",
+      "quote": "Any decision that imposes cost sharing on a QMB member is incorrect regardless of the coverage outcome.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DUAL-LAST",
+      "quote": "claims for QMB cost sharing cross over to the state for adjudication",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-CR",
+      "quote": "Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery, stable angina, heart valve repair or replacement, coronary angioplasty or stenting, or a heart or heart-lung transplant.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-CR",
+      "quote": "documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 2 required documents for cardiac_rehab are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 122 hours remain on the standard track (due 2026-07-15T11:00:00Z).",
+      "data": {
+        "hours_remaining": 122.0
+      }
+    },
+    {
+      "check": "dual_qmb",
+      "severity": "info",
+      "detail": "Member is QMB-tier dual eligible: zero Medicare cost sharing may be charged, and providers may not balance bill. Medicaid coordinates as secondary payer.",
+      "data": {
+        "dual_status": "qmb"
+      }
+    },
+    {
+      "check": "dual_qmb",
+      "severity": "error",
+      "detail": "Draft decision imposes $45.00 cost sharing on a QMB member. QMB members owe $0 \u2014 this must be corrected before any notice goes out.",
+      "data": null
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-08T11:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-15T11:00:00Z",
+    "hours_remaining": 122.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DUAL-LAST",
+      "score": 14.241,
+      "matched_terms": [
+        "cost",
+        "dual",
+        "eligible",
+        "qmb",
+        "sharing"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-QMB",
+      "score": 11.543,
+      "matched_terms": [
+        "cost",
+        "qmb",
+        "sharing"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-DSNP",
+      "score": 8.845,
+      "matched_terms": [
+        "dual",
+        "eligible",
+        "sharing"
+      ]
+    },
+    {
+      "chunk_id": "DOC-CR",
+      "score": 15.079,
+      "matched_terms": [
+        "cardiac",
+        "event",
+        "qualifying",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "MCR-CR",
+      "score": 8.239,
+      "matched_terms": [
+        "cardiac",
+        "coverage",
+        "criteria",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 5.467,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 4.347,
+      "matched_terms": [
+        "medicare",
+        "qualifying"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 122h remaining \u00b7 due 2026-07-15T11:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "4 findings (1 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "QMB dual eligible cost sharing prohibition"
+      },
+      "result_digest": "query 'QMB dual eligible cost sharing prohibition' \u2192 DUAL-LAST (14.241), DUAL-QMB (11.543), DUAL-DSNP (8.845)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "Medicare cardiac rehabilitation coverage criteria qualifying event"
+      },
+      "result_digest": "query 'Medicare cardiac rehabilitation coverage criteria qualifying event' \u2192 DOC-CR (15.079), MCR-CR (8.239), COV-PRECEDENCE (5.467), COV-SNF3DAY (4.347)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Code-detected compliance error: draft imposes $45.00 Medicare cost sharing on a QMB-tier dual-eligible member, which is prohibited (DUAL-QMB). The notice must be corrected to $0 member responsibility before issuance; the underlying coverage approval is otherwise supported.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 14354,
+    "output_tokens": 1659
+  }
+}

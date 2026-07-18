@@ -1,0 +1,39 @@
+{
+  "_note": "Documentation checklists per service type, written for this project. The 'facts' block drives the deterministic completeness check; the chunks are the citable prose.",
+  "facts": {
+    "snf_admission": {"required_documents": ["hospital_discharge_summary", "therapy_evaluation", "physician_certification", "nursing_assessment"]},
+    "home_health": {"required_documents": ["physician_certification", "face_to_face_encounter_note", "plan_of_care"]},
+    "inpatient_admission": {"required_documents": ["emergency_department_note", "physician_admission_order", "clinical_progress_notes"]},
+    "cardiac_rehab": {"required_documents": ["qualifying_event_documentation", "physician_referral"]},
+    "power_wheelchair": {"required_documents": ["face_to_face_mobility_exam", "home_assessment", "detailed_product_description"]},
+    "outpatient_therapy": {"required_documents": ["therapy_evaluation", "plan_of_care"]},
+    "acupuncture_wellness": {"required_documents": ["physician_referral"]}
+  },
+  "chunks": [
+    {
+      "id": "DOC-SNF",
+      "title": "Documentation required: skilled nursing facility admission",
+      "text": "A skilled nursing facility admission review requires the hospital discharge summary, a therapy evaluation establishing the daily skilled need, the physician certification of the need for skilled care, and a nursing assessment. A medical-necessity determination cannot be made without the therapy evaluation and physician certification; if they are absent, request them rather than denying."
+    },
+    {
+      "id": "DOC-HH",
+      "title": "Documentation required: home health services",
+      "text": "A home health review requires the physician certification, the face-to-face encounter note supporting homebound status and skilled need, and the plan of care. Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file."
+    },
+    {
+      "id": "DOC-INPT",
+      "title": "Documentation required: inpatient admission",
+      "text": "An inpatient admission review requires the emergency department or clinic note from presentation, the physician admission order with the admitting clinician's expectation of the length and intensity of care, and the clinical progress notes available at the time of review."
+    },
+    {
+      "id": "DOC-PWC",
+      "title": "Documentation required: power wheelchair",
+      "text": "A power wheelchair review requires the face-to-face mobility examination, the home assessment documenting the in-home environment and mobility barriers, and the detailed product description for the specific equipment requested. The home assessment is what allows the in-home standard to be applied to the member's actual living situation."
+    },
+    {
+      "id": "DOC-CR",
+      "title": "Documentation required: cardiac rehabilitation",
+      "text": "A cardiac rehabilitation review requires documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program."
+    }
+  ]
+}

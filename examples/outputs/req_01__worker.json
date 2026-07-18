@@ -1,0 +1,153 @@
+{
+  "request_id": "req_01",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "decision": "approve",
+  "memo": "APPROVAL RECOMMENDED. Member Alma Reyes qualifies for cardiac rehabilitation under established Medicare coverage criteria. Qualifying event: NSTEMI with drug-eluting stent placement on 2026-06-12, which is within the required 12-month window. Prescribing cardiologist has ordered a supervised program of 36 sessions over 12 weeks with risk-factor modification and outcomes assessment, which aligns precisely with the covered program scope. File is complete with qualifying event documentation and physician referral (per DOC-CR: \"A cardiac rehabilitation review requires documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program.\"). Medicare coverage criteria (MCR-CR) establish coverage for cardiac rehabilitation following coronary stenting; these criteria fully govern the decision per COV-PRECEDENCE. Standard decision track; 97 hours remain before 2026-07-14 10:00 UTC due date. No compliance, documentation, or clinical concerns identified.",
+  "member_impact": "Good news: Your cardiac rehabilitation program is approved. Your doctor prescribed 36 sessions of supervised rehabilitation after your heart stent, and your insurance plan covers this. You can begin your sessions as scheduled. Your cardiologist will guide your exercise and recovery.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Finalize approval notice and send to member",
+    "Notify referring cardiologist of authorization",
+    "Coordinate with cardiac rehab provider for scheduling and session tracking"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-CR",
+      "quote": "Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery, stable angina, heart valve repair or replacement, coronary angioplasty or stenting, or a heart or heart-lung transplant. Coverage includes up to 36 supervised sessions over up to 36 weeks, with physician-prescribed exercise, risk-factor modification, and outcomes assessment.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-CR",
+      "quote": "A cardiac rehabilitation review requires documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "A Medicare Advantage plan must follow traditional Medicare coverage criteria: national coverage determinations, applicable local coverage determinations, and Medicare statutes and regulations. When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 2 required documents for cardiac_rehab are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 97 hours remain on the standard track (due 2026-07-14T10:00:00Z).",
+      "data": {
+        "hours_remaining": 97.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T10:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T10:00:00Z",
+    "hours_remaining": 97.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DOC-CR",
+      "score": 8.472,
+      "matched_terms": [
+        "cardiac",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "MCR-CR",
+      "score": 8.239,
+      "matched_terms": [
+        "cardiac",
+        "coverage",
+        "criteria",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 5.467,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 3.995,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 2.546,
+      "matched_terms": [
+        "qualifying"
+      ]
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "score": 2.234,
+      "matched_terms": [
+        "event"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 97h remaining \u00b7 due 2026-07-14T10:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "cardiac rehabilitation coverage criteria Medicare"
+      },
+      "result_digest": "query 'cardiac rehabilitation coverage criteria Medicare' \u2192 DOC-CR (8.472), MCR-CR (8.239), COV-PRECEDENCE (5.467), COV-INTERNAL (3.995)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "PCI stent placement qualifying event cardiac rehab"
+      },
+      "result_digest": "query 'PCI stent placement qualifying event cardiac rehab' \u2192 DOC-CR (11.376), MCR-CR (3.383), COV-SNF3DAY (2.546), MCR-INPT (2.234)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "approve",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 4827,
+    "output_tokens": 1099
+  }
+}

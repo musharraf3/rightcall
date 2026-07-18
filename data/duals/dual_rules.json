@@ -1,0 +1,20 @@
+{
+  "_note": "Plain-language summaries of dual-eligible coordination rules, written for this project. Simplified for demonstration; not legal advice.",
+  "chunks": [
+    {
+      "id": "DUAL-QMB",
+      "title": "Qualified Medicare Beneficiary (QMB): zero cost sharing",
+      "text": "A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services. Providers may not balance bill a QMB member, and a plan notice must not instruct a QMB member to pay Medicare cost sharing. State Medicaid coordinates as the secondary payer for these amounts. Any decision that imposes cost sharing on a QMB member is incorrect regardless of the coverage outcome."
+    },
+    {
+      "id": "DUAL-LAST",
+      "title": "Medicaid is the payer of last resort",
+      "text": "For a dual-eligible member, Medicare pays first for services covered by both programs, and Medicaid pays last, after all other liable payers. A coverage decision for a dual-eligible member must identify the correct primary payer before any member responsibility is calculated, and claims for QMB cost sharing cross over to the state for adjudication."
+    },
+    {
+      "id": "DUAL-DSNP",
+      "title": "Dual-eligible special needs plans: coordination duties",
+      "text": "A dual-eligible special needs plan must coordinate the member's Medicare and Medicaid benefits, including sharing information needed for the state to adjudicate its portion. A service may not be denied on the Medicare side solely because a Medicaid-side authorization, document, or process is pending; the plan's coordination duty runs to the member, not the other way around."
+    }
+  ]
+}

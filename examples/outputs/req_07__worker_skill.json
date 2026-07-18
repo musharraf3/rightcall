@@ -1,0 +1,187 @@
+{
+  "request_id": "req_07",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "COMPLIANCE FAILURE \u2014 DO NOT FINALIZE.\n\nThe draft violates the criteria-precedence rule. It denies inpatient admission based on the plan's internal screening tool (INT-IMG-1: 'observation appropriate'), but Medicare coverage criteria for inpatient admission are fully established and govern this decision.\n\nGovernance:\n\u2014 COV-PRECEDENCE (chunk_id: COV-PRECEDENCE): \"those criteria govern the decision and the plan may not apply more restrictive rules of its own.\"\n\u2014 COV-2MN (chunk_id: COV-2MN): \"The plan must apply this benchmark to admission reviews; it may not substitute a stricter internal screening tool as the basis for denial.\"\n\u2014 MCR-INPT (chunk_id: MCR-INPT): \"Inpatient admission is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights.\"\n\nMerit analysis (for reference):\nThe admitting clinician explicitly documents expectation of care spanning at least two midnights: telemetry monitoring, MRI/MRA, anticoagulation initiation with monitoring, and swallow evaluation. The member presents with a high-risk TIA (ABCD2 score 6) and newly detected atrial fibrillation. The clinical summary supports the clinician's admission judgment on its face. When the Medicare two-midnight benchmark is applied to the facts, the admission meets the criterion.\n\nThe internal screening tool output contradicts the clinical documentation and the Medicare standard. The draft should not go out.\n\nRequired action: Route to medical director. Re-review against MCR-INPT and COV-2MN. Do not finalize a denial on INT-IMG-1 alone.",
+  "member_impact": "Your admission for a high-risk stroke workup has been flagged for a second review by our medical team before we make a final decision. We've asked them to double-check whether our tool made the right call. We'll let you know what they find within a few days.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "DO NOT FINALIZE the draft denial.",
+    "Route to medical director for re-review against MCR-INPT and COV-2MN (Medicare two-midnight benchmark).",
+    "Conduct clinical re-review: compare the admitting clinician's documented expectation of length and intensity of care (telemetry, imaging, anticoagulation initiation, swallow evaluation) against the two-midnight benchmark. The clinician's expectation supports admission.",
+    "Document the re-review and outcome in the file; prepare a corrected notice.",
+    "Review the governance of INT-IMG-1 in the policies library and confirm it is not being applied as a substitute for Medicare inpatient criteria."
+  ],
+  "citations": [
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "those criteria govern the decision and the plan may not apply more restrictive rules of its own",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-2MN",
+      "quote": "The plan must apply this benchmark to admission reviews; it may not substitute a stricter internal screening tool as the basis for denial",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "quote": "Inpatient admission is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights, considering the member's history, comorbidities, severity of presentation, and risk of an adverse event",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for inpatient_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 100 hours remain on the standard track (due 2026-07-14T13:00:00Z).",
+      "data": {
+        "hours_remaining": 100.0
+      }
+    },
+    {
+      "check": "criteria_precedence",
+      "severity": "error",
+      "detail": "Draft denial rests on internal criteria (INT-IMG-1), but Medicare coverage criteria for inpatient_admission are established (see MCR-INPT). Where Medicare criteria exist, they govern \u2014 internal criteria may only fill gaps.",
+      "data": null
+    },
+    {
+      "check": "overturn_risk",
+      "severity": "warning",
+      "detail": "Overturn-risk factors present (1): internal criteria conflict with Medicare criteria. Published pattern: 81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.",
+      "data": {
+        "factors": [
+          "internal criteria conflict with Medicare criteria"
+        ]
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T13:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T13:00:00Z",
+    "hours_remaining": 100.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "COV-2MN",
+      "score": 15.343,
+      "matched_terms": [
+        "admission",
+        "benchmark",
+        "inpatient",
+        "midnight",
+        "two"
+      ]
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "score": 8.586,
+      "matched_terms": [
+        "admission",
+        "criteria",
+        "inpatient",
+        "two"
+      ]
+    },
+    {
+      "chunk_id": "DOC-INPT",
+      "score": 5.77,
+      "matched_terms": [
+        "admission",
+        "inpatient"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 4.008,
+      "matched_terms": [
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 6.965,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 6.577,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 5.853,
+      "matched_terms": [
+        "criteria",
+        "internal",
+        "precedence"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 100h remaining \u00b7 due 2026-07-14T13:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "4 findings (1 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "inpatient admission two-midnight benchmark Medicare criteria"
+      },
+      "result_digest": "query 'inpatient admission two-midnight benchmark Medicare criteria' \u2192 COV-2MN (15.343), MCR-INPT (8.586), DOC-INPT (5.77), COV-PRECEDENCE (4.008)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "internal screening tool criteria precedence Medicare coverage"
+      },
+      "result_digest": "query 'internal screening tool criteria precedence Medicare coverage' \u2192 COV-INTERNAL (6.965), COV-2MN (6.624), INT-ACU-1 (6.577), INT-SNF-2 (5.853)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Criteria-precedence violation: draft denial rests on internal screening tool (INT-IMG-1) as a substitute for the Medicare two-midnight benchmark (MCR-INPT, COV-2MN). Where Medicare criteria exist, they govern; a plan may not apply more restrictive internal rules. The file_checks report confirms this error. Overturn risk is high (81% of appealed MA denials overturned). The notice must not go out without medical director re-review against the Medicare standard.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 7889,
+    "output_tokens": 1392
+  }
+}

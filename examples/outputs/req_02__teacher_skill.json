@@ -1,0 +1,233 @@
+{
+  "request_id": "req_02",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "ESCALATE \u2014 do not release this notice. Clock: get_deadline reports the standard track with 125.0 hours remaining (due 2026-07-15T14:00:00Z), not breached. File: get_file_checks reports the file is complete \u2014 all 4 required documents for snf_admission are present. Compliance: the checks flag two error-level violations, both confirmed by the rulebook. (1) Criteria precedence: the draft denial rests on internal guideline INT-SNF-2, but Medicare coverage criteria for SNF admission are established. Per COV-PRECEDENCE, 'those criteria govern the decision and the plan may not apply more restrictive rules of its own,' and per COV-INTERNAL, 'A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service.' INT-SNF-2 is itself annotated as a legacy guideline that 'predates current criteria-precedence rules and has not been retired from the criteria library' \u2014 it cannot govern here. (2) Improvement standard: the rationale ('member has plateaued', 'no significant improvement over seven days', 'restorative potential is not documented') is expressly prohibited reasoning. MCR-SNF states 'Coverage does not depend on the member's potential for improvement: skilled care needed to maintain the member's condition, or to prevent or slow further deterioration, is covered' and 'A denial may not be based on the absence of restorative potential or on a finding that the member's condition has plateaued.' On the merits, the clinical summary documents daily skilled needs (swallowing therapy with aspiration precautions, PT/OT for transfers, skilled nursing for PEG-site care and anticoagulation monitoring), which maps directly to MCR-SNF's requirement of 'skilled nursing or skilled rehabilitation services on a daily basis that, as a practical matter, can only be provided on an inpatient basis in a skilled nursing facility' \u2014 the draft appears headed toward the wrong outcome, not just the wrong rationale. get_file_checks also reports 4 overturn-risk factors, including that 95% of appealed SNF denials are overturned. Route to the medical director for re-review under MCR-SNF before any notice issues.",
+  "member_impact": "We are taking a closer look at your request for care in a skilled nursing facility. No decision has been made yet, and no denial letter has been sent. A senior clinical reviewer will look at your case again. Medicare covers skilled care that helps you keep the abilities you have or keeps your condition from getting worse \u2014 you do not have to be improving to qualify. We will let you know the decision soon.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Halt release of the draft denial notice",
+    "Route to medical director for re-review of the SNF admission against Medicare criteria (MCR-SNF), not internal guideline INT-SNF-2",
+    "Remove all improvement-standard language ('plateaued', 'restorative potential', 'no significant improvement') from any rationale",
+    "Retire or annotate legacy internal guideline INT-SNF-2 in the criteria library so it cannot be applied where Medicare criteria exist",
+    "Complete the re-review well within the 125.0 hours remaining on the standard-track clock (due 2026-07-15T14:00:00Z)"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-SNF",
+      "quote": "Coverage does not depend on the member's potential for improvement: skilled care needed to maintain the member's condition, or to prevent or slow further deterioration, is covered.",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "quote": "A denial may not be based on the absence of restorative potential or on a finding that the member's condition has plateaued.",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "quote": "skilled nursing or skilled rehabilitation services on a daily basis that, as a practical matter, can only be provided on an inpatient basis in a skilled nursing facility",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "those criteria govern the decision and the plan may not apply more restrictive rules of its own",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "quote": "A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service.",
+      "verified": true
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "quote": "this legacy guideline predates current criteria-precedence rules and has not been retired from the criteria library",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 4 required documents for snf_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 125 hours remain on the standard track (due 2026-07-15T14:00:00Z).",
+      "data": {
+        "hours_remaining": 125.0
+      }
+    },
+    {
+      "check": "criteria_precedence",
+      "severity": "error",
+      "detail": "Draft denial rests on internal criteria (INT-SNF-2), but Medicare coverage criteria for snf_admission are established (see MCR-SNF). Where Medicare criteria exist, they govern \u2014 internal criteria may only fill gaps.",
+      "data": null
+    },
+    {
+      "check": "improvement_standard",
+      "severity": "error",
+      "detail": "Draft denial rationale uses improvement-standard language ('no significant improvement'; 'plateau'; 'has plateaued'; 'restorative potential'). Skilled care to MAINTAIN function or slow decline is covered \u2014 improvement is not required. This is among the most-overturned denial rationales.",
+      "data": null
+    },
+    {
+      "check": "overturn_risk",
+      "severity": "error",
+      "detail": "Overturn-risk factors present (4): SNF denial (95% of appealed SNF denials are overturned \u2014 OIG 2026); nursing-home resident (denied at 40% vs 11% for others \u2014 OIG 2026); internal criteria conflict with Medicare criteria; improvement-standard rationale. Published pattern: 81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.",
+      "data": {
+        "factors": [
+          "SNF denial (95% of appealed SNF denials are overturned \u2014 OIG 2026)",
+          "nursing-home resident (denied at 40% vs 11% for others \u2014 OIG 2026)",
+          "internal criteria conflict with Medicare criteria",
+          "improvement-standard rationale"
+        ]
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-08T14:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-15T14:00:00Z",
+    "hours_remaining": 125.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "MCR-HH",
+      "score": 8.8,
+      "matched_terms": [
+        "care",
+        "coverage",
+        "criteria",
+        "function",
+        "maintain",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "MCR-THER",
+      "score": 8.692,
+      "matched_terms": [
+        "care",
+        "coverage",
+        "criteria",
+        "function",
+        "maintain",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 7.48,
+      "matched_terms": [
+        "care",
+        "coverage",
+        "criteria",
+        "maintain",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 6.854,
+      "matched_terms": [
+        "care",
+        "criteria",
+        "skilled",
+        "snf"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 9.453,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 8.884,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 8.21,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 7.834,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 125h remaining \u00b7 due 2026-07-15T14:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "5 findings (3 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "Medicare SNF coverage criteria skilled care maintain function"
+      },
+      "result_digest": "query 'Medicare SNF coverage criteria skilled care maintain function' \u2192 MCR-HH (8.8), MCR-THER (8.692), MCR-SNF (7.48), INT-SNF-2 (6.854)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "coverage criteria precedence Medicare vs internal plan criteria"
+      },
+      "result_digest": "query 'coverage criteria precedence Medicare vs internal plan criteria' \u2192 COV-INTERNAL (9.453), INT-ACU-1 (8.884), COV-PRECEDENCE (8.21), INT-IMG-1 (7.834)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Code-detected compliance errors: draft denial rests on internal criteria (INT-SNF-2) where Medicare criteria (MCR-SNF) exist and govern, and uses prohibited improvement-standard/'plateaued' reasoning for skilled care. Four overturn-risk factors flagged. Human review required before any notice issues.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 6,
+    "verified_quotes": 6,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 15935,
+    "output_tokens": 1902
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "request_id": "req_05",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "ESCALATION: Critical QMB cost-sharing violation detected in draft approval.\n\nClinical Summary:\nMember Marisol Quintero (SYN-UM-0005) is a QMB-tier dual-eligible enrolled in a D-SNP plan. Request is for cardiac rehabilitation (24 sessions, CPT 93798) following CABG on 2026-05-30.\n\nClinical Criteria \u2014 MET:\n\u2022 Qualifying event (CABG) within preceding twelve months: CABG performed 2026-05-30; request received 2026-07-08 (40 days post-op, well within 12-month window)\n\u2022 Documentation: Complete; both required documents present (qualifying event documentation, physician referral)\n\u2022 Medicare coverage criterion satisfied per MCR-CR: \"Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced... coronary artery bypass surgery. Coverage includes up to 36 supervised sessions...\"\n\nFile Status:\n\u2022 Documentation: COMPLETE (both required documents submitted)\n\u2022 Deadline: 122 hours remaining; standard track due 2026-07-15T11:00:00Z (NOT BREACHED)\n\u2022 Dual Status: QMB-tier dual eligible (confirmed)\n\nCRITICAL COMPLIANCE ERROR:\nThe draft decision contains a member cost share of $45.00. This is PROHIBITED. Per DUAL-QMB: \"A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services... Any decision that imposes cost sharing on a QMB member is incorrect regardless of the coverage outcome.\"\n\nCorrection Required:\nThe approval is otherwise supported by clinical criteria and complete documentation. However, the member cost share MUST be changed from $45.00 to $0.00 before the notice is finalized. QMB Medicaid coordinates as secondary payer and is responsible for the copay amount.\n\nRecommendation:\nCORRECT the draft decision to remove the $45.00 cost share and reissue with zero member responsibility, then proceed with approval. Do not issue any notice with the copay amount.",
+  "member_impact": "Good news: your cardiac rehabilitation program is approved. You won't owe any copay for these sessions. Your Medicaid covers your share of the cost. Your cardiologist's referral for 24 sessions is covered. Please contact your cardiac rehab center to schedule.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "CORRECT member_cost_share from $45.00 to $0.00 before finalizing notice",
+    "Verify that the plan's system is configured to route QMB approvals to $0 cost sharing by default",
+    "Confirm state Medicaid coordination process will adjudicate the crossover claim for the copay waiver",
+    "Issue corrected approval notice with zero member cost share"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-CR",
+      "quote": "Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery, stable angina, heart valve repair or replacement, coronary angioplasty or stenting, or a heart or heart-lung transplant. Coverage includes up to 36 supervised sessions over up to 36 weeks, with physician-prescribed exercise, risk-factor modification, and outcomes assessment.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-CR",
+      "quote": "A cardiac rehabilitation review requires documentation of the qualifying cardiac event within the preceding twelve months and the physician referral prescribing the program.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DUAL-QMB",
+      "quote": "A member in the Qualified Medicare Beneficiary program cannot be charged Medicare deductibles, coinsurance, or copayments for covered services. Providers may not balance bill a QMB member, and a plan notice must not instruct a QMB member to pay Medicare cost sharing. State Medicaid coordinates as the secondary payer for these amounts. Any decision that imposes cost sharing on a QMB member is incorrect regardless of the coverage outcome.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 2 required documents for cardiac_rehab are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 122 hours remain on the standard track (due 2026-07-15T11:00:00Z).",
+      "data": {
+        "hours_remaining": 122.0
+      }
+    },
+    {
+      "check": "dual_qmb",
+      "severity": "info",
+      "detail": "Member is QMB-tier dual eligible: zero Medicare cost sharing may be charged, and providers may not balance bill. Medicaid coordinates as secondary payer.",
+      "data": {
+        "dual_status": "qmb"
+      }
+    },
+    {
+      "check": "dual_qmb",
+      "severity": "error",
+      "detail": "Draft decision imposes $45.00 cost sharing on a QMB member. QMB members owe $0 \u2014 this must be corrected before any notice goes out.",
+      "data": null
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-08T11:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-15T11:00:00Z",
+    "hours_remaining": 122.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DOC-CR",
+      "score": 15.079,
+      "matched_terms": [
+        "cardiac",
+        "event",
+        "qualifying",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "MCR-CR",
+      "score": 8.239,
+      "matched_terms": [
+        "cardiac",
+        "coverage",
+        "criteria",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "MCR-INPT",
+      "score": 4.167,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "event"
+      ]
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 3.616,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "rehabilitation"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-LAST",
+      "score": 15.296,
+      "matched_terms": [
+        "cost",
+        "dual",
+        "eligible",
+        "member",
+        "qmb",
+        "sharing"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-QMB",
+      "score": 12.638,
+      "matched_terms": [
+        "cost",
+        "member",
+        "qmb",
+        "sharing"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-DSNP",
+      "score": 9.716,
+      "matched_terms": [
+        "dual",
+        "eligible",
+        "member",
+        "sharing"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 122h remaining \u00b7 due 2026-07-15T11:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "4 findings (1 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "cardiac rehabilitation coverage criteria qualifying event CABG"
+      },
+      "result_digest": "query 'cardiac rehabilitation coverage criteria qualifying event CABG' \u2192 DOC-CR (15.079), MCR-CR (8.239), MCR-INPT (4.167), MCR-SNF (3.616)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "QMB dual eligible cost sharing copay member liability"
+      },
+      "result_digest": "query 'QMB dual eligible cost sharing copay member liability' \u2192 DUAL-LAST (15.296), DUAL-QMB (12.638), DUAL-DSNP (9.716), MCR-SNF (1.064)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Draft decision violates QMB cost-sharing prohibition by imposing $45.00 copay on a QMB member. Rule DUAL-QMB explicitly states any such decision is incorrect. Underlying approval is clinically sound and properly documented; only cost-sharing component requires correction.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 5170,
+    "output_tokens": 1584
+  }
+}

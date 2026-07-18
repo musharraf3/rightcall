@@ -1,0 +1,44 @@
+{
+  "_note": "SYNTHETIC, simplified Medicare-style coverage criteria written for this project in the style of NCD/LCD consumer summaries. Not actual CMS text.",
+  "facts": {
+    "snf_admission": {"medicare_criteria_established": true, "criteria_chunk": "MCR-SNF"},
+    "home_health": {"medicare_criteria_established": true, "criteria_chunk": "MCR-HH"},
+    "inpatient_admission": {"medicare_criteria_established": true, "criteria_chunk": "MCR-INPT"},
+    "cardiac_rehab": {"medicare_criteria_established": true, "criteria_chunk": "MCR-CR"},
+    "power_wheelchair": {"medicare_criteria_established": true, "criteria_chunk": "MCR-PWC"},
+    "outpatient_therapy": {"medicare_criteria_established": true, "criteria_chunk": "MCR-THER"},
+    "acupuncture_wellness": {"medicare_criteria_established": false, "criteria_chunk": null}
+  },
+  "chunks": [
+    {
+      "id": "MCR-SNF",
+      "title": "Skilled nursing facility care: coverage criteria",
+      "text": "Skilled nursing facility care is covered when the member requires skilled nursing or skilled rehabilitation services on a daily basis that, as a practical matter, can only be provided on an inpatient basis in a skilled nursing facility. Coverage does not depend on the member's potential for improvement: skilled care needed to maintain the member's condition, or to prevent or slow further deterioration, is covered. A denial may not be based on the absence of restorative potential or on a finding that the member's condition has plateaued."
+    },
+    {
+      "id": "MCR-HH",
+      "title": "Home health services: coverage criteria",
+      "text": "Home health services are covered when the member is confined to the home, is under the care of a physician with a documented face-to-face encounter, and needs intermittent skilled nursing care or therapy services under a plan of care. Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance. Maintenance therapy in the home is covered when skilled care is required to maintain function or prevent decline."
+    },
+    {
+      "id": "MCR-INPT",
+      "title": "Inpatient hospital admission: coverage criteria",
+      "text": "Inpatient admission is appropriate when the admitting clinician reasonably expects the member to require medically necessary hospital care spanning at least two midnights, considering the member's history, comorbidities, severity of presentation, and risk of an adverse event. Complex medical judgment that supports admission must be respected even for an expected shorter stay when documented. Observation status is not a required first step when admission criteria are met at presentation."
+    },
+    {
+      "id": "MCR-CR",
+      "title": "Cardiac rehabilitation: coverage criteria",
+      "text": "Cardiac rehabilitation programs are covered for members who within the preceding twelve months have experienced a heart attack, coronary artery bypass surgery, stable angina, heart valve repair or replacement, coronary angioplasty or stenting, or a heart or heart-lung transplant. Coverage includes up to 36 supervised sessions over up to 36 weeks, with physician-prescribed exercise, risk-factor modification, and outcomes assessment."
+    },
+    {
+      "id": "MCR-PWC",
+      "title": "Power wheelchair: coverage criteria",
+      "text": "A power wheelchair is covered when the member has a mobility limitation that significantly impairs the ability to perform mobility-related activities of daily living such as toileting, feeding, dressing, and bathing IN THE HOME, and the limitation cannot be adequately and safely resolved by a cane, walker, or optimally configured manual wheelchair. The evaluation includes a face-to-face mobility examination and an assessment of the home environment. Equipment intended primarily for mobility outside the home, for leisure, or for community convenience does not meet the in-home standard."
+    },
+    {
+      "id": "MCR-THER",
+      "title": "Outpatient therapy: coverage criteria",
+      "text": "Outpatient physical, occupational, and speech therapy are covered when the services require the skills of a qualified therapist and are reasonable and necessary for the member's condition. Coverage includes maintenance programs when the specialized judgment of a therapist is required to maintain function or to prevent or slow decline. Improvement in the member's condition is not required for continued coverage of skilled maintenance care."
+    }
+  ]
+}

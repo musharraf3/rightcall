@@ -1,0 +1,145 @@
+{
+  "request_id": "req_09",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "ESCALATE \u2014 do not finalize this denial. Clock: per get_deadline, standard track with 95.0 hours remaining (due 2026-07-14T08:00:00Z), not breached. File: per get_file_checks, 'File is complete: all 3 required documents for home_health are present.' The problem is an evidence conflict the draft does not resolve. The face-to-face encounter note states the member is 'largely bed-to-chair, requires assist of one plus a walker for any ambulation, and becomes dyspneic after 20 feet.' Under MCR-HH, 'Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance' \u2014 the F2F documentation squarely supports that standard. The draft instead rests on a telephonic utilization note that the member 'attended a family barbecue last month.' Per DOC-HH, 'Homebound status is established by the face-to-face documentation'; a secondhand telephonic note about a single social outing cannot override the F2F note, and the draft rationale ('Homebound status not established') mischaracterizes a file whose controlling document affirmatively supports homebound status. Skilled need also appears supported: 83F, CHF with EF 25%, skilled nursing weekly + OT 2x weekly under a plan of care, and MCR-HH covers 'intermittent skilled nursing care or therapy services under a plan of care.' This denial carries high overturn risk on appeal. Route to the medical director to resolve the documentary conflict; if the F2F note stands, the draft should be reversed to an approval.",
+  "member_impact": "Your request for home health care is still being reviewed. We have not made a final decision yet. Your doctor's visit note says it is very hard for you to leave home, and we want to make sure that information is looked at carefully before anything is decided. You do not need to do anything right now. We will send you a decision in writing.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Route the case to the medical director to resolve the conflict between the face-to-face encounter note and the telephonic utilization note before any notice is issued",
+    "Re-review homebound status against MCR-HH giving controlling weight to the face-to-face documentation per DOC-HH",
+    "If the face-to-face note stands, reverse the draft denial and approve the home health services as requested",
+    "Counsel the drafting reviewer that an isolated reported outing in a telephonic note is not, by itself, a basis to find homebound status unmet against contrary face-to-face documentation"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-HH",
+      "quote": "Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance.",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "quote": "needs intermittent skilled nursing care or therapy services under a plan of care",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-HH",
+      "quote": "Homebound status is established by the face-to-face documentation",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for home_health are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 95 hours remain on the standard track (due 2026-07-14T08:00:00Z).",
+      "data": {
+        "hours_remaining": 95.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T08:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T08:00:00Z",
+    "hours_remaining": 95.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "MCR-HH",
+      "score": 14.993,
+      "matched_terms": [
+        "confined",
+        "criteria",
+        "health",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "DOC-HH",
+      "score": 14.162,
+      "matched_terms": [
+        "health",
+        "home",
+        "homebound"
+      ]
+    },
+    {
+      "chunk_id": "MCR-PWC",
+      "score": 7.231,
+      "matched_terms": [
+        "criteria",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "DOC-PWC",
+      "score": 7.081,
+      "matched_terms": [
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-DSNP",
+      "score": 4.115,
+      "matched_terms": [
+        "special"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 95h remaining \u00b7 due 2026-07-14T08:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "home health homebound criteria Medicare confined to the home"
+      },
+      "result_digest": "query 'home health homebound criteria Medicare confined to the home' \u2192 MCR-HH (14.993), DOC-HH (14.162), MCR-PWC (7.231), DOC-PWC (7.081)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "infrequent absences from home homebound status special occasions"
+      },
+      "result_digest": "query 'infrequent absences from home homebound status special occasions' \u2192 DOC-HH (12.379), DUAL-DSNP (4.115), MCR-HH (3.632), DOC-PWC (3.54)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Evidence conflict: the face-to-face encounter note documents a bed-to-chair existence supporting homebound status under MCR-HH, while the draft denial rests on a telephonic note about a single social outing. The controlling documentation contradicts the denial rationale; a human must resolve the conflict before any notice goes out.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 14468,
+    "output_tokens": 1750
+  }
+}

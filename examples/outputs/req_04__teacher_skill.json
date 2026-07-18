@@ -1,0 +1,141 @@
+{
+  "request_id": "req_04",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "denial_supported",
+  "memo": "Recommend finalizing the draft denial. (1) Clock gate: get_deadline reports the standard track with 55.0 hours remaining (due 2026-07-12T16:00:00Z), not breached. (2) File gate: get_file_checks reports 'File is complete: all 3 required documents for power_wheelchair are present' \u2014 the face-to-face mobility exam, home assessment, and detailed product description satisfy DOC-PWC, which requires exactly those items ('the face-to-face mobility examination, the home assessment documenting the in-home environment and mobility barriers, and the detailed product description'). (3) Compliance gate: no criteria-precedence, improvement-standard, or QMB findings; member has no dual status and the draft carries $0 cost share. The draft correctly bases the decision on Medicare criteria (MCR-PWC), consistent with COV-PRECEDENCE ('those criteria govern the decision and the plan may not apply more restrictive rules of its own'). (4) Merits: MCR-PWC covers a power wheelchair only when the mobility limitation impairs MRADLs 'IN THE HOME, and the limitation cannot be adequately and safely resolved by a cane, walker, or optimally configured manual wheelchair.' The face-to-face exam documents independent ambulation throughout the home with a rollator, including safe transfers, toileting, and kitchen access; the home assessment confirms a single-level home with no barriers to walker use. The member's stated goal \u2014 longer outings to the senior center and park \u2014 falls squarely under MCR-PWC's exclusion: 'Equipment intended primarily for mobility outside the home, for leisure, or for community convenience does not meet the in-home standard.' The draft's specific_reason is case-specific and member-readable. No conflicts in the evidence; the rationale accurately characterizes the file.",
+  "member_impact": "Your plan looked closely at your request for a power wheelchair. Your exam showed that your walker safely meets your needs everywhere in your home \u2014 moving around, using the bathroom, and getting to the kitchen. Medicare covers power wheelchairs when someone cannot get around inside their home even with a walker. Because your walker works well for you at home, and the power chair was mainly for trips outside like the senior center and the park, the request does not meet Medicare's coverage rule. You will not owe anything for this decision. If you disagree, you have the right to appeal, and the denial letter will explain how.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Finalize the denial notice with the draft's specific_reason language intact",
+    "Ensure the notice cites MCR-PWC (Medicare criteria) as the basis and includes standard appeal rights",
+    "Issue the notice before the standard-track due date of 2026-07-12T16:00:00Z (55 hours remaining per the decision clock)"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-PWC",
+      "quote": "IN THE HOME, and the limitation cannot be adequately and safely resolved by a cane, walker, or optimally configured manual wheelchair",
+      "verified": true
+    },
+    {
+      "chunk_id": "MCR-PWC",
+      "quote": "Equipment intended primarily for mobility outside the home, for leisure, or for community convenience does not meet the in-home standard.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-PWC",
+      "quote": "the face-to-face mobility examination, the home assessment documenting the in-home environment and mobility barriers, and the detailed product description",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "those criteria govern the decision and the plan may not apply more restrictive rules of its own",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for power_wheelchair are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 55 hours remain on the standard track (due 2026-07-12T16:00:00Z).",
+      "data": {
+        "hours_remaining": 55.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-05T16:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-12T16:00:00Z",
+    "hours_remaining": 55.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "MCR-PWC",
+      "score": 18.129,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "equipment",
+        "home",
+        "mobility",
+        "power",
+        "wheelchair"
+      ]
+    },
+    {
+      "chunk_id": "DOC-PWC",
+      "score": 17.517,
+      "matched_terms": [
+        "equipment",
+        "home",
+        "mobility",
+        "power",
+        "wheelchair"
+      ]
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "score": 5.2,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 3.125,
+      "matched_terms": [
+        "coverage",
+        "criteria"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 55h remaining \u00b7 due 2026-07-12T16:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "power wheelchair mobility equipment in-home coverage criteria"
+      },
+      "result_digest": "query 'power wheelchair mobility equipment in-home coverage criteria' \u2192 MCR-PWC (18.129), DOC-PWC (17.517), MCR-HH (5.2), COV-PRECEDENCE (3.125)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "denial_supported",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 9460,
+    "output_tokens": 1656
+  }
+}

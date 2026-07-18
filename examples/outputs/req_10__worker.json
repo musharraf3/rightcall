@@ -1,0 +1,240 @@
+{
+  "request_id": "req_10",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "Ruth Castellanos's SNF request meets Medicare coverage criteria for skilled nursing facility admission (MCR-SNF): the member requires daily skilled rehabilitation services (PT/OT weight-bearing progression and transfer training) on an inpatient basis post-pelvic fracture, and physician certification of daily skilled need is on file. All required documentation is complete (discharge summary, therapy evaluation, physician certification, nursing assessment).\n\nHowever, the expedited review deadline has been breached. The request was received 2026-07-06 12:00 UTC; the expedited (72-hour) decision deadline was 2026-07-09 12:00 UTC. The review is now 21 hours overdue as of 2026-07-10 09:00 UTC. Per REG-UNTIMELY, a missed decision deadline is treated as an adverse determination and is reportable as a compliance failure. Although the approval decision on the merits is sound, the untimely delivery requires escalation to the compliance and legal team. The plan should: (1) issue the approval decision immediately with documentation of the deadline breach; (2) file the compliance report; and (3) review workflow to prevent future expedited cases from missing the 72-hour clock.",
+  "member_impact": "Good news: your request for skilled nursing facility care has been approved. You meet Medicare's criteria for this care because you need daily skilled therapy (physical and occupational therapy) after your pelvic fracture, and your doctor has certified that you need this skilled care in a nursing facility. We apologize that our decision took longer than our 3-day deadline. We are working to improve our process so this does not happen again. Your SNF placement can proceed immediately.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Issue approval immediately with explicit acknowledgment of deadline breach and date/time of approval issuance",
+    "Route to compliance officer with breach notification and timeline documentation",
+    "File regulatory report of untimely expedited decision within required timeframe",
+    "Conduct root-cause analysis of workflow delay (identify bottleneck between 2026-07-06 receipt and 2026-07-10 review)",
+    "Implement expedited-case flag or alert system to prevent future 72-hour misses"
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-SNF",
+      "quote": "Skilled nursing facility care is covered when the member requires skilled nursing or skilled rehabilitation services on a daily basis that, as a practical matter, can only be provided on an inpatient basis in a skilled nursing facility.",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-EXP-72",
+      "quote": "Expedited decisions must be sent within 72 hours of receipt.",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-UNTIMELY",
+      "quote": "If the plan fails to issue its decision within the required timeframe, the delay is treated as an adverse determination: the case must be forwarded for independent review and the untimeliness is a reportable compliance failure.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "quote": "A skilled nursing facility admission review requires the hospital discharge summary, a therapy evaluation establishing the daily skilled need, the physician certification of the need for skilled care, and a nursing assessment.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 4 required documents for snf_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "error",
+      "detail": "Decision clock BREACHED: the expedited deadline was 2026-07-09T12:00:00Z and it is now 2026-07-10T09:00:00Z. An untimely adverse determination is itself a compliance failure \u2014 escalate.",
+      "data": {
+        "hours_remaining": -21.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "expedited",
+    "received_at": "2026-07-06T12:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-09T12:00:00Z",
+    "hours_remaining": -21.0,
+    "breached": true
+  },
+  "retrieval": [
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 10.041,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "facility",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 9.16,
+      "matched_terms": [
+        "criteria",
+        "facility",
+        "nursing",
+        "skilled",
+        "snf"
+      ]
+    },
+    {
+      "chunk_id": "COV-SNF3DAY",
+      "score": 8.961,
+      "matched_terms": [
+        "facility",
+        "medicare",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "score": 7.931,
+      "matched_terms": [
+        "facility",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXP-72",
+      "score": 9.881,
+      "matched_terms": [
+        "72",
+        "expedited"
+      ]
+    },
+    {
+      "chunk_id": "REG-UNTIMELY",
+      "score": 5.801,
+      "matched_terms": [
+        "deadline",
+        "review"
+      ]
+    },
+    {
+      "chunk_id": "REG-STD-7",
+      "score": 4.628,
+      "matched_terms": [
+        "clock",
+        "review"
+      ]
+    },
+    {
+      "chunk_id": "DOC-INPT",
+      "score": 1.998,
+      "matched_terms": [
+        "review"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 10.059,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "guidelines",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 8.618,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "guidelines",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 7.274,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 6.544,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare",
+        "plan"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "expedited track \u00b7 -21h remaining \u00b7 due 2026-07-09T12:00:00Z \u00b7 BREACHED"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (1 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "skilled nursing facility SNF coverage criteria Medicare"
+      },
+      "result_digest": "query 'skilled nursing facility SNF coverage criteria Medicare' \u2192 MCR-SNF (10.041), INT-SNF-2 (9.16), COV-SNF3DAY (8.961), DOC-SNF (7.931)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "expedited review 72 hour deadline clock"
+      },
+      "result_digest": "query 'expedited review 72 hour deadline clock' \u2192 REG-EXP-72 (9.881), REG-UNTIMELY (5.801), REG-STD-7 (4.628), DOC-INPT (1.998)"
+    },
+    {
+      "step": 5,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "criteria precedence Medicare coverage over internal plan guidelines"
+      },
+      "result_digest": "query 'criteria precedence Medicare coverage over internal plan guidelines' \u2192 COV-INTERNAL (10.059), INT-IMG-1 (8.618), INT-ACU-1 (7.274), COV-PRECEDENCE (6.544)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Expedited review deadline breached by 21 hours (due 2026-07-09 12:00 UTC, reviewed 2026-07-10 09:00 UTC). Per REG-UNTIMELY, a missed decision deadline is itself reportable as a compliance failure. Although the approval decision is medically and legally sound under MCR-SNF criteria, the untimely issuance requires escalation to compliance and legal for breach documentation, regulatory notification, and workflow correction. Clinical approval is recommended, but must be issued immediately with breach acknowledgment.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 9237,
+    "output_tokens": 1798
+  }
+}

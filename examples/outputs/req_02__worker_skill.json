@@ -1,0 +1,224 @@
+{
+  "request_id": "req_02",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "DO NOT FINALIZE. The draft fails two core compliance rules and carries extreme overturn risk (95% of appealed SNF denials overturned per OIG 2026; this case combines internal-criteria conflict, improvement-standard language, and nursing-home setting\u201481% overall MA appeal overturn rate).\n\n1. IMPROVEMENT-STANDARD ERROR: Draft rationale ('plateaued', 'no significant improvement', 'restorative potential not documented') violates MCR-SNF [chunk MCR-SNF]: 'skilled care needed to maintain the member's condition, or to prevent or slow further deterioration, is covered. A denial may not be based on the absence of restorative potential or on a finding that the member's condition has plateaued.' The clinical summary documents daily skilled needs (swallowing therapy with aspiration precautions, PT/OT for safe transfers, skilled nursing for PEG-site care and anticoagulation monitoring). Functional stability\u2014not improvement\u2014supports coverage for maintenance-level skilled care.\n\n2. CRITERIA-PRECEDENCE ERROR: Draft relies on INT-SNF-2 (legacy 2019 internal guideline requiring 'expected significant functional improvement within 14 days'). However, MCR-SNF (Medicare coverage criteria for SNF) is fully established and governs. Per COV-PRECEDENCE [chunk COV-PRECEDENCE]: 'When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.' INT-SNF-2 directly contradicts MCR-SNF by requiring improvement as a prerequisite; Medicare explicitly rejects that standard. This denial cannot stand.\n\n3. MEMBER COST SHARE: $0 (correct); no QMB issue.\n\nClock: 125 hours remain (due 2026-07-15 at 14:00 UTC); no deadline risk.\n\nFile: Complete (all 4 required documents present).\n\nRECOMMENDED ACTIONS:\n- Route to medical director immediately; do not finalize notice.\n- Re-review against MCR-SNF (not INT-SNF-2). Member meets Medicare criteria: post-stroke, acute discharge, documented daily skilled nursing and therapy needs, medical necessity clearly established by discharge summary and therapy evaluation.\n- Retire or formally annotate INT-SNF-2 in the criteria library with a precedence note; do not apply to future SNF reviews.\n- Approval is the appropriate coverage outcome on this file.",
+  "member_impact": "Your request for skilled nursing care after your stroke cannot be approved under the guideline your plan used. We need to review this again under the correct Medicare rules. You should not receive a denial letter until your care is reviewed the right way. We will contact you within the next few days with an update.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Route to medical director immediately; do not finalize or mail notice.",
+    "Re-review against MCR-SNF (Medicare criteria), not INT-SNF-2.",
+    "Approve: member meets Medicare criteria (post-stroke, acute discharge, documented daily skilled needs for nursing, swallowing therapy, PT/OT, and medical monitoring).",
+    "Retire or annotate INT-SNF-2 in the criteria library; flag for precedence violation in future use."
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-SNF",
+      "quote": "skilled care needed to maintain the member's condition, or to prevent or slow further deterioration, is covered. A denial may not be based on the absence of restorative potential or on a finding that the member's condition has plateaued.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "When Medicare coverage criteria fully establish when an item or service is covered, those criteria govern the decision and the plan may not apply more restrictive rules of its own.",
+      "verified": true
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "quote": "skilled nursing facility admission is approved when the member demonstrates documented restorative potential with expected significant functional improvement within 14 days of admission, measurable against baseline functional scores. Members assessed as having plateaued or as requiring maintenance-level care do not meet this guideline.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "quote": "A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 4 required documents for snf_admission are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 125 hours remain on the standard track (due 2026-07-15T14:00:00Z).",
+      "data": {
+        "hours_remaining": 125.0
+      }
+    },
+    {
+      "check": "criteria_precedence",
+      "severity": "error",
+      "detail": "Draft denial rests on internal criteria (INT-SNF-2), but Medicare coverage criteria for snf_admission are established (see MCR-SNF). Where Medicare criteria exist, they govern \u2014 internal criteria may only fill gaps.",
+      "data": null
+    },
+    {
+      "check": "improvement_standard",
+      "severity": "error",
+      "detail": "Draft denial rationale uses improvement-standard language ('no significant improvement'; 'plateau'; 'has plateaued'; 'restorative potential'). Skilled care to MAINTAIN function or slow decline is covered \u2014 improvement is not required. This is among the most-overturned denial rationales.",
+      "data": null
+    },
+    {
+      "check": "overturn_risk",
+      "severity": "error",
+      "detail": "Overturn-risk factors present (4): SNF denial (95% of appealed SNF denials are overturned \u2014 OIG 2026); nursing-home resident (denied at 40% vs 11% for others \u2014 OIG 2026); internal criteria conflict with Medicare criteria; improvement-standard rationale. Published pattern: 81% of appealed MA denials are overturned \u2014 a denial with these markers is unlikely to survive review.",
+      "data": {
+        "factors": [
+          "SNF denial (95% of appealed SNF denials are overturned \u2014 OIG 2026)",
+          "nursing-home resident (denied at 40% vs 11% for others \u2014 OIG 2026)",
+          "internal criteria conflict with Medicare criteria",
+          "improvement-standard rationale"
+        ]
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-08T14:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-15T14:00:00Z",
+    "hours_remaining": 125.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 12.793,
+      "matched_terms": [
+        "criteria",
+        "facility",
+        "improvement",
+        "maintenance",
+        "nursing",
+        "skilled",
+        "snf"
+      ]
+    },
+    {
+      "chunk_id": "MCR-SNF",
+      "score": 11.873,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "facility",
+        "improvement",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "MCR-THER",
+      "score": 8.75,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "improvement",
+        "maintenance",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "DOC-SNF",
+      "score": 7.931,
+      "matched_terms": [
+        "facility",
+        "nursing",
+        "skilled"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 10.059,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "guidelines",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 8.618,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "guidelines",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 7.274,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "internal",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 6.544,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare",
+        "plan"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 125h remaining \u00b7 due 2026-07-15T14:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "5 findings (3 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "SNF skilled nursing facility coverage criteria maintenance improvement"
+      },
+      "result_digest": "query 'SNF skilled nursing facility coverage criteria maintenance improvement' \u2192 INT-SNF-2 (12.793), MCR-SNF (11.873), MCR-THER (8.75), DOC-SNF (7.931)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "coverage criteria precedence Medicare internal plan guidelines"
+      },
+      "result_digest": "query 'coverage criteria precedence Medicare internal plan guidelines' \u2192 COV-INTERNAL (10.059), INT-IMG-1 (8.618), INT-ACU-1 (7.274), COV-PRECEDENCE (6.544)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Compliance gate failure on two grounds: (1) improvement-standard error \u2014 draft uses 'plateaued' and 'no significant improvement' rationale, directly violating MCR-SNF which explicitly states improvement is not required and denials cannot rest on plateau or lack of restorative potential; (2) criteria-precedence error \u2014 draft applies legacy INT-SNF-2 (requiring 'expected significant functional improvement within 14 days') when MCR-SNF is fully established and governs, and INT-SNF-2 contradicts it. File is complete and clock is healthy, but the notice as drafted will very likely be overturned on appeal (95% of appealed SNF denials overturned; case combines all high-risk markers). Medical director review and re-determination against MCR-SNF required before any notice is mailed.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 8176,
+    "output_tokens": 1865
+  }
+}

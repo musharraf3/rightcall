@@ -1,0 +1,201 @@
+{
+  "request_id": "req_08",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "decision": "denial_supported",
+  "memo": "Recommend finalizing the draft denial. Decision-tree review: (1) Clock \u2014 per get_deadline, standard track, 78.0 hours remain, due 2026-07-13T15:00:00Z, not breached. (2) File \u2014 per get_file_checks, 'File is complete: all 1 required documents for acupuncture_wellness are present'; no missing documents. (3) Compliance \u2014 no criteria-precedence, improvement-standard, or QMB flags were reported. The basis is INT-ACU-1, which is proper here: this is a supplemental benefit with no Medicare coverage criteria, the exact gap where internal criteria may govern (COV-INTERNAL: 'A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service'). INT-ACU-1 itself confirms both the gap and the publication requirement ('This is a supplemental benefit beyond traditional Medicare, and Medicare coverage criteria are not established for it; these internal criteria are published on the plan website with their clinical rationale and evidence sources'). (4) Merits \u2014 INT-ACU-1 covers 'up to 12 visits per calendar year with a licensed acupuncturist upon physician referral' and 'Requests beyond 12 visits per year are outside the benefit.' Member has used 8 of 12 visits; a request for 20 more clearly exceeds the limit. The draft's specific reason is case-specific and correctly states partial availability (4 remaining visits), satisfying REG-REASON ('A denial must include a specific reason for the denial, stated in a way the member can understand'). Member is not dual-eligible and no cost share is imposed. The draft is compliant and finalizable; recommend the approval letter language make clear the 4 remaining covered visits can still be authorized.",
+  "member_impact": "Your plan's acupuncture wellness benefit covers up to 12 visits each calendar year with a doctor's referral. You have used 8 visits so far this year. That means up to 4 more visits can still be covered this year. Your request was for 20 more visits, which is more than the yearly benefit allows, so the plan cannot cover all of them. You can still use your remaining 4 covered visits. If you disagree with this decision, you have the right to appeal, and the notice you receive will explain how.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Finalize the denial notice with the draft's specific reason, keeping the statement that up to 4 more visits remain available this year",
+    "Consider authorizing the 4 remaining in-benefit visits so the member can use the rest of the annual benefit without a new request",
+    "Issue the notice well before the standard-track due date of 2026-07-13T15:00:00Z (78 hours remain per the decision clock)"
+  ],
+  "citations": [
+    {
+      "chunk_id": "INT-ACU-1",
+      "quote": "covers up to 12 visits per calendar year with a licensed acupuncturist upon physician referral",
+      "verified": true
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "quote": "This is a supplemental benefit beyond traditional Medicare, and Medicare coverage criteria are not established for it; these internal criteria are published on the plan website with their clinical rationale and evidence sources",
+      "verified": true
+    },
+    {
+      "chunk_id": "INT-ACU-1",
+      "quote": "Requests beyond 12 visits per year are outside the benefit.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "quote": "A plan may apply internal coverage criteria only when Medicare coverage criteria are not fully established for the item or service.",
+      "verified": true
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "quote": "A denial must include a specific reason for the denial, stated in a way the member can understand",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 1 required documents for acupuncture_wellness are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 78 hours remain on the standard track (due 2026-07-13T15:00:00Z).",
+      "data": {
+        "hours_remaining": 78.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-06T15:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-13T15:00:00Z",
+    "hours_remaining": 78.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "INT-ACU-1",
+      "score": 17.149,
+      "matched_terms": [
+        "acupuncture",
+        "benefit",
+        "criteria",
+        "internal",
+        "supplemental"
+      ]
+    },
+    {
+      "chunk_id": "COV-INTERNAL",
+      "score": 4.722,
+      "matched_terms": [
+        "criteria",
+        "internal"
+      ]
+    },
+    {
+      "chunk_id": "INT-IMG-1",
+      "score": 3.365,
+      "matched_terms": [
+        "criteria",
+        "internal"
+      ]
+    },
+    {
+      "chunk_id": "INT-SNF-2",
+      "score": 3.308,
+      "matched_terms": [
+        "criteria",
+        "internal"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 9.877,
+      "matched_terms": [
+        "coverage",
+        "criteria",
+        "medicare",
+        "plan"
+      ]
+    },
+    {
+      "chunk_id": "REG-REASON",
+      "score": 12.491,
+      "matched_terms": [
+        "denial",
+        "member",
+        "reason",
+        "requirement",
+        "specific"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-QMB",
+      "score": 3.819,
+      "matched_terms": [
+        "member",
+        "notice"
+      ]
+    },
+    {
+      "chunk_id": "REG-EXT",
+      "score": 3.581,
+      "matched_terms": [
+        "member",
+        "reason"
+      ]
+    },
+    {
+      "chunk_id": "REG-INCOMPLETE",
+      "score": 3.243,
+      "matched_terms": [
+        "denial",
+        "specific"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 78h remaining \u00b7 due 2026-07-13T15:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "acupuncture supplemental benefit visit limit internal criteria"
+      },
+      "result_digest": "query 'acupuncture supplemental benefit visit limit internal criteria' \u2192 INT-ACU-1 (17.149), COV-INTERNAL (4.722), INT-IMG-1 (3.365), INT-SNF-2 (3.308)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "coverage criteria precedence Medicare criteria vs internal plan criteria"
+      },
+      "result_digest": "query 'coverage criteria precedence Medicare criteria vs internal plan criteria' \u2192 COV-INTERNAL (11.205), INT-ACU-1 (10.495), COV-PRECEDENCE (9.877), INT-IMG-1 (9.522)"
+    },
+    {
+      "step": 5,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "denial notice specific reason requirement member-readable"
+      },
+      "result_digest": "query 'denial notice specific reason requirement member-readable' \u2192 REG-REASON (12.491), DUAL-QMB (3.819), REG-EXT (3.581), REG-INCOMPLETE (3.243)"
+    }
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "policy_notes": [],
+  "model_decision": "denial_supported",
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 21756,
+    "output_tokens": 1683
+  }
+}

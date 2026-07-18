@@ -1,0 +1,172 @@
+{
+  "request_id": "req_09",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "decision": "escalate_human",
+  "memo": "CRITICAL ERROR DETECTED: Draft denial contradicts applicable Medicare criteria and documentation rules.\n\n**Issue:** Denial rests on a single anecdotal report of a community outing, contradicting the face-to-face clinical note that explicitly documents the member is bed-to-chair, requires assistance and a walker, and becomes dyspneic after 20 feet.\n\n**Medicare Criterion (MCR-HH):** 'Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance.' The face-to-face note establishes both: the leaving is medically contraindicated (dyspnea) AND requires substantial assistance (assist of one plus walker).\n\n**Procedural Rule (DOC-HH):** 'Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file.' While the note is present, the rule's logic is that homebound status flows from the clinical assessment, not from occasional secondary reports. A single barbecue report is not a clinical encounter and does not rebut the physician's documented findings.\n\n**Conflict:** The clinical record (face-to-face) supports homebound status. The draft decision relies on an unverified utilization note. This is a classic evidence conflict requiring human clinician judgment.\n\n**Action Required:** Clinical reviewer must reconcile the face-to-face clinical findings with the barbecue report. Options: (a) Confirm barbecue report is unreliable or misattributed; (b) Obtain clinical explanation from treating physician if member made the outing against medical advice or required intervention; (c) Request updated assessment if clinical status has changed. A denial on this evidence conflict is not supportable.",
+  "member_impact": "We received your request for home health services. Your doctor's notes show that you need help getting around at home and become short of breath when you walk. This means you qualify for home health under Medicare's rules. Before we make a final decision, we need to talk with your doctor's office to understand one note that mentioned an outing. We want to make sure we have the full picture before we decide. We will contact your doctor and get back to you soon.",
+  "missing_documents": [],
+  "recommended_actions": [
+    "Clinical reviewer must examine the face-to-face note directly and verify its findings on homebound status.",
+    "Obtain clinical clarification: did the barbecue outing occur while the current medical condition was diagnosed, or before it worsened? Does the treating physician confirm or dispute the utilization note?",
+    "If face-to-face findings stand (bed-to-chair, dyspneic at 20 feet with assistance), the Medicare criterion is met and denial cannot be supported.",
+    "If barbecue outing is confirmed as recent and uncontradicted, obtain physician explanation: was it medically contraindicated? Did it worsen the member's condition?",
+    "Escalation to compliance/medical director to resolve the evidence conflict."
+  ],
+  "citations": [
+    {
+      "chunk_id": "MCR-HH",
+      "quote": "Confined to the home means leaving home requires considerable and taxing effort and is medically contraindicated or requires assistance.",
+      "verified": true
+    },
+    {
+      "chunk_id": "DOC-HH",
+      "quote": "Homebound status is established by the face-to-face documentation; a denial for homebound status cannot be supported while that note is missing from the file.",
+      "verified": true
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "quote": "A Medicare Advantage plan must follow traditional Medicare coverage criteria: national coverage determinations, applicable local coverage determinations, and Medicare statutes and regulations.",
+      "verified": true
+    }
+  ],
+  "findings": [
+    {
+      "check": "documentation",
+      "severity": "info",
+      "detail": "File is complete: all 3 required documents for home_health are present.",
+      "data": {
+        "missing": []
+      }
+    },
+    {
+      "check": "deadline",
+      "severity": "info",
+      "detail": "Decision clock: 95 hours remain on the standard track (due 2026-07-14T08:00:00Z).",
+      "data": {
+        "hours_remaining": 95.0
+      }
+    }
+  ],
+  "deadline": {
+    "track": "standard",
+    "received_at": "2026-07-07T08:00:00Z",
+    "as_of": "2026-07-10T09:00:00Z",
+    "due_at": "2026-07-14T08:00:00Z",
+    "hours_remaining": 95.0,
+    "breached": false
+  },
+  "retrieval": [
+    {
+      "chunk_id": "DOC-HH",
+      "score": 11.307,
+      "matched_terms": [
+        "health",
+        "home",
+        "homebound"
+      ]
+    },
+    {
+      "chunk_id": "MCR-HH",
+      "score": 7.352,
+      "matched_terms": [
+        "criteria",
+        "health",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "MCR-PWC",
+      "score": 4.026,
+      "matched_terms": [
+        "criteria",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "COV-PRECEDENCE",
+      "score": 4.008,
+      "matched_terms": [
+        "criteria",
+        "medicare"
+      ]
+    },
+    {
+      "chunk_id": "DOC-PWC",
+      "score": 9.251,
+      "matched_terms": [
+        "face",
+        "home"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-LAST",
+      "score": 11.421,
+      "matched_terms": [
+        "coverage",
+        "dual",
+        "eligible"
+      ]
+    },
+    {
+      "chunk_id": "DUAL-DSNP",
+      "score": 10.217,
+      "matched_terms": [
+        "dual",
+        "eligible"
+      ]
+    }
+  ],
+  "tool_trace": [
+    {
+      "step": 1,
+      "tool": "get_deadline",
+      "tool_input": {},
+      "result_digest": "standard track \u00b7 95h remaining \u00b7 due 2026-07-14T08:00:00Z"
+    },
+    {
+      "step": 2,
+      "tool": "get_file_checks",
+      "tool_input": {},
+      "result_digest": "2 findings (0 error-level)"
+    },
+    {
+      "step": 3,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "home health homebound Medicare criteria"
+      },
+      "result_digest": "query 'home health homebound Medicare criteria' \u2192 DOC-HH (11.307), MCR-HH (7.352), MCR-PWC (4.026), COV-PRECEDENCE (4.008)"
+    },
+    {
+      "step": 4,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "skilled nursing home health coverage requirements face-to-face"
+      },
+      "result_digest": "query 'skilled nursing home health coverage requirements face-to-face' \u2192 MCR-HH (15.619), DOC-HH (14.671), DOC-PWC (9.251), MCR-PWC (8.768)"
+    },
+    {
+      "step": 5,
+      "tool": "lookup_rules",
+      "tool_input": {
+        "query": "dual eligible full dual home health coverage protection"
+      },
+      "result_digest": "query 'dual eligible full dual home health coverage protection' \u2192 DUAL-LAST (11.421), DUAL-DSNP (10.217), MCR-HH (7.203), DOC-HH (6.096)"
+    }
+  ],
+  "escalate": true,
+  "escalate_reason": "Evidence conflict: face-to-face clinical documentation establishes homebound status (bed-to-chair, dyspneic, requires assistance); draft denial rests on a secondary utilization note reporting a single community outing. Medicare criterion MCR-HH requires 'considerable and taxing effort' or 'medically contraindicated' leaving\u2014the clinical note supports this. The evidence conflict cannot be resolved by UM review alone; requires clinical reviewer reconciliation and treating physician input. Denial on this factual conflict would violate the MCR-HH standard and DOC-HH procedural rule.",
+  "policy_notes": [],
+  "model_decision": "escalate_human",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 5780,
+    "output_tokens": 1645
+  }
+}

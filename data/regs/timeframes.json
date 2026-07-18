@@ -1,0 +1,35 @@
+{
+  "_note": "Plain-language summaries of public decision-timeframe rules for MA prior authorization (CMS-0057-F era, effective January 2026), written for this project. Simplified for demonstration; not legal advice.",
+  "chunks": [
+    {
+      "id": "REG-STD-7",
+      "title": "Standard prior authorization decisions: 7 calendar days",
+      "text": "For a standard (non-urgent) prior authorization request, the plan must send its decision within 7 calendar days of receiving the request. The clock starts at receipt, not at the start of clinical review. This timeframe applies regardless of how the request was submitted."
+    },
+    {
+      "id": "REG-EXP-72",
+      "title": "Expedited prior authorization decisions: 72 hours",
+      "text": "A request must be handled as expedited when applying the standard timeframe could seriously jeopardize the member's life, health, or ability to regain maximum function. Expedited decisions must be sent within 72 hours of receipt. A provider's statement that the case is urgent is sufficient to require the expedited track."
+    },
+    {
+      "id": "REG-REASON",
+      "title": "Denials must state a specific reason",
+      "text": "A denial must include a specific reason for the denial, stated in a way the member can understand, so the member and provider can decide whether to resubmit with more information or to appeal. A bare statement such as 'not medically necessary' without case-specific explanation does not satisfy this requirement."
+    },
+    {
+      "id": "REG-EXT",
+      "title": "Extensions of the decision timeframe",
+      "text": "The plan may extend a decision timeframe by up to 14 calendar days only when the member requests it or when the plan can show the extension is in the member's interest, such as receiving additional evidence that is likely to change the decision. The member must be notified in writing of the extension and its reason. Workload or staffing is never a valid basis for an extension."
+    },
+    {
+      "id": "REG-UNTIMELY",
+      "title": "A missed decision deadline is itself a failure",
+      "text": "If the plan fails to issue its decision within the required timeframe, the delay is treated as an adverse determination: the case must be forwarded for independent review and the untimeliness is a reportable compliance failure. Deciding late and deciding wrongly are both failures; a denial issued after the deadline compounds the risk."
+    },
+    {
+      "id": "REG-INCOMPLETE",
+      "title": "Incomplete files: request the information, do not deny",
+      "text": "When a request lacks documentation needed to establish medical necessity, the appropriate action is to request the specific missing information from the provider, using an extension where allowed, rather than issuing a medical-necessity denial on an incomplete record. Denials issued on incomplete files are a leading source of overturned decisions, provider abrasion, and avoidable appeals."
+    }
+  ]
+}
